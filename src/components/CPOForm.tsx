@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import SuccessModal from "./SuccessModal";
 
 export default function CPOForm() {
@@ -8,6 +8,11 @@ export default function CPOForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
+  const hpRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    hpRef.current?.setAttribute("name", "ref_h_p");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,7 +20,7 @@ export default function CPOForm() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const honeypot = formData.get("referral_code") as string;
+    const honeypot = formData.get("ref_h_p") as string;
     if (honeypot) return;
 
     setLoading(true);
@@ -61,8 +66,8 @@ export default function CPOForm() {
           className="form-card space-y-5"
         >
           <input
+            ref={hpRef}
             type="text"
-            name="referral_code"
             tabIndex={-1}
             autoComplete="off"
             className="absolute opacity-0 pointer-events-none h-0 w-0"

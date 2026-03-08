@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import SuccessModal from "./SuccessModal";
 
 const POWER_OPTIONS = [
@@ -22,6 +22,11 @@ export default function LandownerForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
+  const hpRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    hpRef.current?.setAttribute("name", "url_h_p");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,7 +34,7 @@ export default function LandownerForm() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const honeypot = formData.get("website_url") as string;
+    const honeypot = formData.get("url_h_p") as string;
     if (honeypot) return;
 
     setLoading(true);
@@ -75,8 +80,8 @@ export default function LandownerForm() {
           className="form-card space-y-5"
         >
           <input
+            ref={hpRef}
             type="text"
-            name="website_url"
             tabIndex={-1}
             autoComplete="off"
             className="absolute opacity-0 pointer-events-none h-0 w-0"
@@ -107,7 +112,7 @@ export default function LandownerForm() {
 
           <div>
             <label htmlFor="landowner-maps">Google Maps Location Link *</label>
-            <input id="landowner-maps" type="url" name="googleMapsLink" required placeholder="https://maps.google.com/..." />
+            <input id="landowner-maps" type="text" name="googleMapsLink" required placeholder="https://maps.google.com/..." />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -136,7 +141,7 @@ export default function LandownerForm() {
 
           <div>
             <label htmlFor="landowner-photo">Site Photo Google Drive Link (Optional)</label>
-            <input id="landowner-photo" type="url" name="sitePhotoLink" placeholder="https://drive.google.com/..." />
+            <input id="landowner-photo" type="text" name="sitePhotoLink" placeholder="https://drive.google.com/..." />
           </div>
 
           {error && <p className="text-red-400 text-sm">{error}</p>}

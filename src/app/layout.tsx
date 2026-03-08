@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   title: "EZIT ChargeConnect – Turn Your Land or Capital Into EV Charging Income",
   description:
     "India's EV infrastructure is expanding rapidly. Participate as a landowner or investor. Earn from your land, invest in EV charging, or request charging near you.",
+  icons: {
+    icon: "/images/ezit-logo.jpg",
+    apple: "/images/ezit-logo.jpg",
+  },
 };
 
 export default function RootLayout({

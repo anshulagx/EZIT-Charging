@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import SuccessModal from "./SuccessModal";
 
 const TYPE_OPTIONS = [
@@ -16,6 +16,11 @@ export default function DemandForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
+  const hpRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    hpRef.current?.setAttribute("name", "biz_h_p");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,7 +28,7 @@ export default function DemandForm() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const honeypot = formData.get("business_name") as string;
+    const honeypot = formData.get("biz_h_p") as string;
     if (honeypot) return;
 
     setLoading(true);
@@ -70,8 +75,8 @@ export default function DemandForm() {
           className="form-card space-y-5"
         >
           <input
+            ref={hpRef}
             type="text"
-            name="business_name"
             tabIndex={-1}
             autoComplete="off"
             className="absolute opacity-0 pointer-events-none h-0 w-0"

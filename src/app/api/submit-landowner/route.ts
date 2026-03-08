@@ -1,19 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
-import { appendToSheet, uploadToDrive } from "@/lib/sheets";
+import { appendToSheet } from "@/lib/sheets";
 
 export async function POST(req: NextRequest) {
   try {
-    const formData = await req.formData();
-
-    const fullName = formData.get("fullName") as string;
-    const phone = formData.get("phone") as string;
-    const city = formData.get("city") as string;
-    const googleMapsLink = formData.get("googleMapsLink") as string;
-    const landSize = formData.get("landSize") as string;
-    const powerAvailability = formData.get("powerAvailability") as string;
-    const earningModel = formData.get("earningModel") as string;
-    const expectedRent = (formData.get("expectedRent") as string) || "N/A";
-    const sitePhoto = formData.get("sitePhoto") as File | null;
+    const body = await req.json();
+    const {
+      fullName,
+      phone,
+      city,
+      googleMapsLink,
+      landSize,
+      powerAvailability,
+      earningModel,
+      expectedRent,
+      sitePhotoLink,
+    } = body;
 
     if (
       !fullName ||
@@ -38,11 +39,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    let photoLink = "N/A";
-    if (sitePhoto && sitePhoto.size > 0) {
-      photoLink = await uploadToDrive(sitePhoto);
-    }
-
     await appendToSheet("landowner", [
       fullName,
       phone,
@@ -51,8 +47,8 @@ export async function POST(req: NextRequest) {
       landSize,
       powerAvailability,
       earningModel,
-      expectedRent,
-      photoLink,
+      expectedRent || "N/A",
+      sitePhotoLink || "N/A",
     ]);
 
     return NextResponse.json({ success: true });

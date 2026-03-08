@@ -21,7 +21,6 @@ export default function LandownerForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
-  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,26 +36,17 @@ export default function LandownerForm() {
     try {
       const res = await fetch("/api/submit-landowner", {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(Object.fromEntries(formData)),
+        headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Submission failed");
       setSuccess(true);
       form.reset();
-      setPhotoPreview(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
       setLoading(false);
-    }
-  };
-
-  const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setPhotoPreview(URL.createObjectURL(file));
-    } else {
-      setPhotoPreview(null);
     }
   };
 
@@ -145,13 +135,8 @@ export default function LandownerForm() {
           </div>
 
           <div>
-            <label htmlFor="landowner-photo">Upload Site Photo (Optional)</label>
-            <input id="landowner-photo" type="file" name="sitePhoto" accept="image/*" onChange={onFileChange} />
-            {photoPreview && (
-              <div className="mt-2 rounded-lg overflow-hidden border border-white/10 max-w-xs">
-                <img src={photoPreview} alt="Preview" className="w-full h-32 object-cover" />
-              </div>
-            )}
+            <label htmlFor="landowner-photo">Site Photo Google Drive Link (Optional)</label>
+            <input id="landowner-photo" type="url" name="sitePhotoLink" placeholder="https://drive.google.com/..." />
           </div>
 
           {error && <p className="text-red-400 text-sm">{error}</p>}

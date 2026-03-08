@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { appendToSheet } from "@/lib/sheets";
+import { appendToSheet, uploadToDrive } from "@/lib/sheets";
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,6 +13,7 @@ export async function POST(req: NextRequest) {
     const powerAvailability = formData.get("powerAvailability") as string;
     const earningModel = formData.get("earningModel") as string;
     const expectedRent = (formData.get("expectedRent") as string) || "N/A";
+    const sitePhoto = formData.get("sitePhoto") as File | null;
 
     if (
       !fullName ||
@@ -37,6 +38,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    let photoLink = "N/A";
+    if (sitePhoto && sitePhoto.size > 0) {
+      photoLink = await uploadToDrive(sitePhoto);
+    }
+
     await appendToSheet("landowner", [
       fullName,
       phone,
@@ -46,6 +52,7 @@ export async function POST(req: NextRequest) {
       powerAvailability,
       earningModel,
       expectedRent,
+      photoLink,
     ]);
 
     return NextResponse.json({ success: true });

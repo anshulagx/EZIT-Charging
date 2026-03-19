@@ -101,13 +101,23 @@ export default function LandownerForm() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
+              <label htmlFor="landowner-email">Email *</label>
+              <input id="landowner-email" type="email" name="email" required placeholder="you@example.com" />
+            </div>
+            <div>
               <label htmlFor="landowner-city">City *</label>
               <input id="landowner-city" type="text" name="city" required placeholder="City" />
             </div>
-            <div>
-              <label htmlFor="landowner-size">Approx Land Size *</label>
-              <input id="landowner-size" type="text" name="landSize" required placeholder="e.g. 500 sq ft, 0.5 acre" />
-            </div>
+          </div>
+
+          <div>
+            <label htmlFor="landowner-address">Property Address *</label>
+            <input id="landowner-address" type="text" name="propertyAddress" required placeholder="Full site address" />
+          </div>
+
+          <div>
+            <label htmlFor="landowner-size">Approx Land Size *</label>
+            <input id="landowner-size" type="text" name="landSize" required placeholder="e.g. 500 sq ft, 0.5 acre" />
           </div>
 
           <div>
@@ -117,8 +127,12 @@ export default function LandownerForm() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label htmlFor="landowner-power">Power Availability *</label>
-              <select id="landowner-power" name="powerAvailability" required>
+              <label htmlFor="landowner-parking">Number of Parking Spaces *</label>
+              <input id="landowner-parking" type="number" name="parkingSpaces" required placeholder="e.g. 2" min={1} />
+            </div>
+            <div>
+              <label htmlFor="landowner-power">Electricity Connection Type *</label>
+              <select id="landowner-power" name="electricityType" required>
                 {POWER_OPTIONS.map((o) => (
                   <option key={o.value} value={o.value}>{o.label}</option>
                 ))}

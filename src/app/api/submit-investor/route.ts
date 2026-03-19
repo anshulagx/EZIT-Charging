@@ -4,9 +4,9 @@ import { appendToSheet } from "@/lib/sheets";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { fullName, phone, budgetRange, preferredCities, investmentTimeline, preferredModel } = body;
+    const { fullName, phone, email, budgetRange, preferredCities, investmentTimeline, preferredModel } = body;
 
-    if (!fullName || !phone || !budgetRange || !preferredCities || !investmentTimeline || !preferredModel) {
+    if (!fullName || !phone || !email || !budgetRange || !preferredCities || !investmentTimeline || !preferredModel) {
       return NextResponse.json(
         { error: "All required fields must be filled" },
         { status: 400 }
@@ -24,6 +24,7 @@ export async function POST(req: NextRequest) {
     await appendToSheet("investor", [
       fullName,
       phone,
+      email,
       budgetRange,
       preferredCities,
       investmentTimeline,

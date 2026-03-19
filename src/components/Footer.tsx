@@ -58,23 +58,53 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#landowner" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Earn From Your Land
+                <Link href="/" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Home
                 </Link>
               </li>
               <li>
-                <Link href="#investor" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Invest in EV Charging
+                <Link href="/host-a-charger" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Host a Charger
                 </Link>
               </li>
               <li>
-                <Link href="#demand" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Request Charging
+                <Link href="/invest" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Invest
                 </Link>
               </li>
               <li>
-                <Link href="#cpo" className="text-sm text-white/50 hover:text-white transition-colors">
-                  For CPOs
+                <Link href="/charging-locations" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Find Charging
+                </Link>
+              </li>
+              <li>
+                <Link href="/charging-solutions" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Charging Solutions
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Locations
+                </Link>
+              </li>
+              <li>
+                <Link href="/how-it-works" className="text-sm text-white/50 hover:text-white transition-colors">
+                  How It Works
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-sm text-white/50 hover:text-white transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Blog
                 </Link>
               </li>
             </ul>

@@ -107,6 +107,11 @@ export default function InvestorForm() {
             </div>
           </div>
 
+          <div>
+            <label htmlFor="investor-email">Email *</label>
+            <input id="investor-email" type="email" name="email" required placeholder="you@example.com" />
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label htmlFor="investor-budget">Budget Range *</label>

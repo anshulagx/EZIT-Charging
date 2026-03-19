@@ -5,6 +5,14 @@ import Link from "next/link";
 import { useState } from "react";
 
 const LOGO_URL = "/images/ezit-logo.jpg";
+const NAV_ITEMS = [
+  { href: "/", label: "Home" },
+  { href: "/host-a-charger", label: "Host a Charger" },
+  { href: "/invest", label: "Invest" },
+  { href: "/charging-locations", label: "Find Charging" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,13 +32,22 @@ export default function Navbar() {
             />
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
-            <a
-              href="#landowner"
-              className="inline-flex items-center px-5 py-2.5 rounded-full border border-white/20 text-white text-sm font-medium hover:bg-white hover:text-black transition-all duration-300"
+          <div className="hidden md:flex items-center gap-6">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-white/70 hover:text-white transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              href="/host-a-charger"
+              className="inline-flex items-center px-5 py-2.5 rounded-full bg-white text-black text-sm font-medium hover:bg-white/90 transition-all duration-300"
             >
-              Partner With Us
-            </a>
+              List Your Land
+            </Link>
           </div>
 
           <button
@@ -50,33 +67,22 @@ export default function Navbar() {
 
         {menuOpen && (
           <div className="md:hidden pb-4 border-t border-white/5 mt-1 pt-3 space-y-3">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block text-sm text-white/70 hover:text-white py-1.5"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
             <Link
-              href="#landowner"
-              className="block text-sm text-white/70 hover:text-white py-1.5"
+              href="/host-a-charger"
+              className="inline-flex items-center justify-center w-full mt-2 px-5 py-2.5 rounded-full bg-white text-black text-sm font-medium hover:bg-white/90 transition-all duration-300"
               onClick={() => setMenuOpen(false)}
             >
-              Partner With Us
-            </Link>
-            <Link
-              href="#investor"
-              className="block text-sm text-white/70 hover:text-white py-1.5"
-              onClick={() => setMenuOpen(false)}
-            >
-              Invest
-            </Link>
-            <Link
-              href="#demand"
-              className="block text-sm text-white/70 hover:text-white py-1.5"
-              onClick={() => setMenuOpen(false)}
-            >
-              Request Charging
-            </Link>
-            <Link
-              href="#cpo"
-              className="block text-sm text-white/70 hover:text-white py-1.5"
-              onClick={() => setMenuOpen(false)}
-            >
-              For CPOs
+              List Your Land
             </Link>
           </div>
         )}

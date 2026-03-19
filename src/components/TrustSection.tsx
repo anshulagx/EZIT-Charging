@@ -43,10 +43,11 @@ export default function TrustSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-white">
-            Why Partner with EZIT?
+            Built on Trusted Infrastructure Expertise
           </h2>
           <p className="mt-3 text-white/50 max-w-xl mx-auto">
-            Part of the Black Cobra Group (Est. 1992). Infrastructure-grade solutions built for scale.
+            EZIT is part of the Black Cobra Group (Est. 1992), combining decades of
+            execution experience with a pan-India expansion vision for EV charging.
           </p>
         </div>
 

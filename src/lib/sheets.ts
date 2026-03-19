@@ -27,6 +27,7 @@ const SHEET_NAMES = {
   investor: "Investors",
   demand: "Demand Requests",
   cpo: "CPO Interest",
+  contact: "Contact",
 } as const;
 
 export async function appendToSheet(

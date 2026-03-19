@@ -7,10 +7,13 @@ export async function POST(req: NextRequest) {
     const {
       fullName,
       phone,
+      email,
       city,
+      propertyAddress,
       googleMapsLink,
       landSize,
-      powerAvailability,
+      parkingSpaces,
+      electricityType,
       earningModel,
       expectedRent,
       sitePhotoLink,
@@ -19,10 +22,13 @@ export async function POST(req: NextRequest) {
     if (
       !fullName ||
       !phone ||
+      !email ||
       !city ||
+      !propertyAddress ||
       !googleMapsLink ||
       !landSize ||
-      !powerAvailability ||
+      !parkingSpaces ||
+      !electricityType ||
       !earningModel
     ) {
       return NextResponse.json(
@@ -42,10 +48,13 @@ export async function POST(req: NextRequest) {
     await appendToSheet("landowner", [
       fullName,
       phone,
+      email,
       city,
+      propertyAddress,
       googleMapsLink,
       landSize,
-      powerAvailability,
+      parkingSpaces,
+      electricityType,
       earningModel,
       expectedRent || "N/A",
       sitePhotoLink || "N/A",

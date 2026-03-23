@@ -7,8 +7,7 @@ const CHARGER_IMG = "/images/charger-mockup.png";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12">
-      <div className="absolute inset-0 bg-[#0a0a0a]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(34,197,94,0.12),transparent)]" />
+      <div className="absolute inset-0 bg-background" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -51,25 +50,26 @@ export default function Hero() {
               </Link>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-6">
-              <div>
-                <div className="text-2xl sm:text-3xl font-bold text-white">60kW+</div>
-                <div className="text-xs text-white/40 mt-1">Fast Charging</div>
+            <div className="mt-10 flex w-full">
+              <div className="flex-1 min-w-0 text-center px-1 sm:px-2">
+                <div className="text-xl sm:text-3xl font-bold text-ezit-green leading-tight">FAST</div>
+                <div className="text-xs sm:text-lg font-semibold text-white mt-0.5">Charging</div>
               </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-bold text-white">PAN</div>
-                <div className="text-xs text-white/40 mt-1">India Presence</div>
+              <div className="flex-1 min-w-0 text-center px-1 sm:px-2">
+                <div className="text-base sm:text-3xl font-bold text-ezit-green leading-snug tracking-tight">
+                  APP-FREE
+                </div>
+                <div className="text-xs sm:text-lg font-semibold text-white mt-0.5">UPI Payments</div>
               </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-bold text-white">UPI</div>
-                <div className="text-xs text-white/40 mt-1">App-Free Payments</div>
+              <div className="flex-1 min-w-0 text-center px-1 sm:px-2">
+                <div className="text-xl sm:text-3xl font-bold text-ezit-green leading-tight">RELIABLE</div>
+                <div className="text-xs sm:text-lg font-semibold text-white mt-0.5">Infrastructure</div>
               </div>
             </div>
           </div>
 
           <div className="relative flex justify-center lg:justify-end">
             <div className="relative w-[300px] sm:w-[380px] lg:w-[440px] xl:w-[480px]">
-              <div className="absolute -inset-4 bg-gradient-to-b from-ezit-green/10 via-transparent to-transparent rounded-3xl blur-2xl" />
               <Image
                 src={CHARGER_IMG}
                 alt="EZIT Premium Charging Station"

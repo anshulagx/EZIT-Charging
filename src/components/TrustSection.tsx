@@ -1,3 +1,6 @@
+import PageSection from "@/components/subpage/PageSection";
+import { SubpageCard } from "@/components/subpage/SubpageCard";
+
 const features = [
   {
     icon: (
@@ -5,67 +8,75 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    title: "DC Fast Charging",
+    title: "DC fast charging",
     desc: "60kW to 320+ kW chargers. Full charge in 20–40 minutes.",
   },
   {
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
       </svg>
     ),
-    title: "Revenue Share Models",
+    title: "Revenue share models",
     desc: "Flexible earning models — fixed rent, revenue share, or custom arrangements.",
   },
   {
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+        />
       </svg>
     ),
-    title: "End-to-End Support",
+    title: "End-to-end support",
     desc: "We handle installation, maintenance, compliance, and monitoring.",
   },
   {
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
       </svg>
     ),
-    title: "PAN-India Network",
+    title: "PAN-India network",
     desc: "Rapidly expanding across highways, urban centres, and commercial hubs.",
   },
-];
+] as const;
 
 export default function TrustSection() {
   return (
-    <section className="py-16 md:py-20 bg-[#0a0a0a] border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-white">
-            Built on Trusted Infrastructure Expertise
-          </h2>
-          <p className="mt-3 text-white/50 max-w-xl mx-auto">
-            EZIT is part of the Black Cobra Group (Est. 1992), combining decades of
-            execution experience with a pan-India expansion vision for EV charging.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {features.map((f) => (
-            <div
-              key={f.title}
-              className="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-300 group"
-            >
-              <div className="w-10 h-10 rounded-xl bg-ezit-green/10 flex items-center justify-center text-ezit-green mb-4 group-hover:bg-ezit-green/20 transition-colors">
-                {f.icon}
-              </div>
-              <h3 className="text-sm font-semibold text-white mb-1.5">{f.title}</h3>
-              <p className="text-xs text-white/45 leading-relaxed">{f.desc}</p>
+    <PageSection
+      tone="muted"
+      header={{
+        eyebrow: "Heritage",
+        title: "Built on trusted infrastructure expertise",
+        description:
+          "EZIT is part of the Black Cobra Group (Est. 1992), combining decades of execution experience with a pan-India expansion vision for EV charging.",
+      }}
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+        {features.map((f) => (
+          <SubpageCard key={f.title}>
+            <div className="w-11 h-11 rounded-xl bg-ezit-green/12 border border-ezit-green/20 flex items-center justify-center text-ezit-green mb-4">
+              {f.icon}
             </div>
-          ))}
-        </div>
+            <h3 className="text-base font-semibold text-white">{f.title}</h3>
+            <p className="mt-2 text-sm text-white/55 leading-relaxed">{f.desc}</p>
+          </SubpageCard>
+        ))}
       </div>
-    </section>
+    </PageSection>
   );
 }

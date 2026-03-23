@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0a;
+  --background: rgb(0 4 3);
+  --background-header: rgb(0 4 3 / 0.8);
   --foreground: #ffffff;
   --ezit-green: #22c55e;
   --ezit-green-hover: #16a34a;

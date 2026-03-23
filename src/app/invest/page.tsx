@@ -1,86 +1,136 @@
 import InvestorForm from "@/components/InvestorForm";
+import PageHero from "@/components/subpage/PageHero";
+import PageSection from "@/components/subpage/PageSection";
+import { SubpageCard } from "@/components/subpage/SubpageCard";
+
+const PROVIDES = [
+  "End-to-end installation",
+  "Day-to-day operations",
+  "Preventive & corrective maintenance",
+  "UPI-first payment stack",
+  "Remote monitoring & alerts",
+] as const;
 
 export default function InvestPage() {
   return (
-    <div className="pt-24">
-      <section className="py-16 md:py-20 bg-[#0a0a0a]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Invest in India&apos;s EV Charging Infrastructure</h1>
-          <p className="mt-4 text-white/60 max-w-2xl mx-auto">
-            Participate in one of India&apos;s fastest-growing infrastructure categories with EZIT&apos;s execution and operating support.
-          </p>
-        </div>
-      </section>
+    <div>
+      <PageHero
+        eyebrow="For investors"
+        title={
+          <>
+            Invest in <span className="text-ezit-green">India&apos;s charging build-out</span>
+          </>
+        }
+        description="Participate in a fast-scaling infrastructure category with EZIT execution, operations, and partner alignment—from site selection to long-term uptime."
+      />
 
-      <section className="py-16 bg-[#0d0d0d] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center">Market Opportunity</h2>
-          <p className="mt-6 text-white/65 text-center">
-            EV adoption is accelerating while public charging density is still limited. This creates high demand for reliable charging assets across urban centers, highways, and mixed-use hubs.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 bg-[#0a0a0a] border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center">Investment Models</h2>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-              <h3 className="text-xl font-semibold text-white">Franchise Model</h3>
-              <p className="mt-2 text-white/60 text-sm">
-                Partner funds infrastructure while EZIT manages installation, operations, and uptime.
-              </p>
-            </div>
-            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-              <h3 className="text-xl font-semibold text-white">Co-investment Model</h3>
-              <p className="mt-2 text-white/60 text-sm">
-                EZIT and partner share capex and participate in revenue based on agreed structure.
-              </p>
-            </div>
+      <PageSection tone="muted" header={{ eyebrow: "Market", title: "Why charging demand is structural" }}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div className="lg:col-span-7 space-y-5">
+            <p className="text-white/65 leading-relaxed text-base">
+              EV adoption is accelerating while dependable public charging remains uneven. That gap shows up as queues at
+              good sites, underutilized broken hardware elsewhere, and driver preference for networks that simply work.
+            </p>
+            <p className="text-white/55 leading-relaxed text-sm">
+              EZIT focuses on locations with real dwell or flow, electrical realism, and operating discipline—so assets
+              are positioned for utilization, not just headlines.
+            </p>
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-[#0d0d0d] border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center">Financial Overview</h2>
-          <div className="mt-8 rounded-2xl overflow-hidden border border-white/[0.08]">
-            <table className="w-full text-left text-sm">
-              <tbody>
-                <tr className="border-b border-white/[0.08]">
-                  <td className="p-4 text-white/60">Charging capacity</td>
-                  <td className="p-4 text-white">30kW to 360kW options</td>
-                </tr>
-                <tr className="border-b border-white/[0.08]">
-                  <td className="p-4 text-white/60">Estimated usage</td>
-                  <td className="p-4 text-white">Location and traffic dependent</td>
-                </tr>
-                <tr className="border-b border-white/[0.08]">
-                  <td className="p-4 text-white/60">Potential revenue range</td>
-                  <td className="p-4 text-white">Shared during investor consultation</td>
-                </tr>
-                <tr>
-                  <td className="p-4 text-white/60">ROI timeline</td>
-                  <td className="p-4 text-white">Model-specific projection</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-[#0a0a0a] border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center">What EZIT Provides</h2>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {["Installation", "Operations", "Maintenance", "Payment system", "Monitoring"].map((item) => (
-              <div key={item} className="rounded-xl p-4 bg-white/[0.03] border border-white/[0.08] text-white/75 text-sm">
-                {item}
-              </div>
+          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+            {[
+              { k: "Focus", v: "Urban + highway nodes" },
+              { k: "Payments", v: "UPI-forward, low friction" },
+              { k: "Operations", v: "Monitoring-led uptime" },
+              { k: "Partners", v: "Land + capital alignment" },
+            ].map((s) => (
+              <SubpageCard key={s.k} className="!p-4">
+                <div className="text-xs font-medium text-white/40 uppercase tracking-wider">{s.k}</div>
+                <div className="mt-2 text-sm font-semibold text-white leading-snug">{s.v}</div>
+              </SubpageCard>
             ))}
           </div>
         </div>
-      </section>
+      </PageSection>
+
+      <PageSection
+        tone="base"
+        header={{
+          eyebrow: "Models",
+          title: "Investment structures",
+          description: "We work with partners under flexible arrangements—choose what matches your risk, capex, and involvement preference.",
+        }}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <SubpageCard className="p-8">
+            <span className="text-xs font-semibold uppercase tracking-wider text-ezit-green">Franchise-style</span>
+            <h3 className="mt-2 text-xl font-semibold text-white">Franchise model</h3>
+            <p className="mt-3 text-sm text-white/60 leading-relaxed">
+              Partner funds infrastructure while EZIT manages installation, operations, and uptime—built for operators who
+              want exposure without running day-to-day field work.
+            </p>
+          </SubpageCard>
+          <SubpageCard className="p-8 ring-1 ring-ezit-green/15">
+            <span className="text-xs font-semibold uppercase tracking-wider text-ezit-green">Shared capex</span>
+            <h3 className="mt-2 text-xl font-semibold text-white">Co-investment model</h3>
+            <p className="mt-3 text-sm text-white/60 leading-relaxed">
+              EZIT and partners share capex with a revenue split matched to contribution—useful when both sides want aligned
+              incentives at the asset level.
+            </p>
+          </SubpageCard>
+        </div>
+      </PageSection>
+
+      <PageSection tone="muted" header={{ eyebrow: "Snapshot", title: "Financial overview (indicative)" }}>
+        <SubpageCard hover={false} className="overflow-hidden p-0">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm min-w-[520px]">
+              <tbody>
+                {[
+                  ["Charging capacity", "30kW to 360kW options"],
+                  ["Estimated usage", "Location and traffic dependent"],
+                  ["Potential revenue range", "Shared during investor consultation"],
+                  ["ROI timeline", "Model-specific projection"],
+                ].map(([a, b], i, arr) => (
+                  <tr
+                    key={a}
+                    className={`border-b border-white/[0.06] ${i % 2 === 0 ? "bg-white/[0.02]" : "bg-transparent"} ${
+                      i === arr.length - 1 ? "border-b-0" : ""
+                    }`}
+                  >
+                    <th scope="row" className="p-4 sm:p-5 text-white/50 font-medium w-[40%] align-top">
+                      {a}
+                    </th>
+                    <td className="p-4 sm:p-5 text-white/90 align-top">{b}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </SubpageCard>
+        <p className="mt-4 text-center text-xs text-white/40 max-w-2xl mx-auto">
+          Figures are illustrative. Final economics depend on site, tariff, utilization, and agreement structure.
+        </p>
+      </PageSection>
+
+      <PageSection
+        tone="base"
+        header={{
+          eyebrow: "Operator layer",
+          title: "What EZIT provides",
+          description: "Investors plug into an operating system—not just a hardware purchase.",
+        }}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
+          {PROVIDES.map((item) => (
+            <SubpageCard key={item} className="!p-4 text-center sm:text-left">
+              <div className="mx-auto sm:mx-0 w-9 h-9 rounded-lg bg-ezit-green/12 border border-ezit-green/25 flex items-center justify-center text-ezit-green text-xs font-bold mb-3">
+                ✓
+              </div>
+              <p className="text-sm text-white/75 leading-snug">{item}</p>
+            </SubpageCard>
+          ))}
+        </div>
+      </PageSection>
 
       <InvestorForm />
     </div>

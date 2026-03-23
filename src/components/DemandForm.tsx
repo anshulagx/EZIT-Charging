@@ -50,7 +50,7 @@ export default function DemandForm() {
   };
 
   return (
-    <section id="demand" className="py-16 md:py-24 scroll-mt-20 bg-[#0a0a0a] border-t border-white/5">
+    <section id="demand" className="py-16 md:py-24 scroll-mt-20 bg-[var(--background)] border-t border-white/5">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <div className="section-badge bg-amber-500/10 border border-amber-500/20 text-amber-400 mb-4">

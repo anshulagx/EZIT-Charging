@@ -6,7 +6,7 @@ export default function CTABanner() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#0a0a0a] border-t border-white/5">
+    <section className="py-16 md:py-24 bg-[var(--background)] border-t border-white/5">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="relative p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/[0.08] overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_0%,rgba(34,197,94,0.08),transparent)]" />

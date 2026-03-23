@@ -56,7 +56,7 @@ export default function LandownerForm() {
   };
 
   return (
-    <section id="landowner" className="py-16 md:py-24 scroll-mt-20 bg-[#0a0a0a] border-t border-white/5">
+    <section id="landowner" className="py-16 md:py-24 scroll-mt-20 bg-[var(--background)] border-t border-white/5">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <div className="section-badge bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-4">

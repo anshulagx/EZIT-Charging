@@ -1,69 +1,136 @@
+import Link from "next/link";
 import LandownerForm from "@/components/LandownerForm";
+import PageHero from "@/components/subpage/PageHero";
+import PageSection from "@/components/subpage/PageSection";
+import { StepCard, SubpageCard } from "@/components/subpage/SubpageCard";
+
+const IDEAL = [
+  { title: "Hospitality & retail", items: ["Hotels", "Restaurants", "Shopping malls"] },
+  { title: "High-traffic corridors", items: ["Highway properties", "Petrol pumps", "Transit adjacencies"] },
+  { title: "Residential & mixed use", items: ["Residential societies", "Commercial complexes", "Office parks"] },
+] as const;
+
+const REQUIREMENTS = [
+  { title: "Space & access", text: "Minimum two parking spaces with practical ingress/egress for EVs." },
+  { title: "Power", text: "Three-phase availability (or a clear path to upgrade) for reliable fast charging." },
+  { title: "Visibility", text: "Locations drivers can find easily—signage-friendly and map-friendly." },
+  { title: "Footfall", text: "Dwell time or steady traffic patterns that support utilization." },
+] as const;
+
+const BENEFITS = [
+  "New recurring income from underused parking",
+  "Stronger asset positioning as EV adoption grows",
+  "Higher footfall and dwell from charging customers",
+  "Sustainability story your guests and tenants notice",
+] as const;
+
+const STEPS = [
+  "Submit location details",
+  "EZIT evaluates the site",
+  "Charger installation & commissioning",
+  "Revenue sharing begins",
+] as const;
 
 export default function HostAChargerPage() {
   return (
-    <div className="pt-24">
-      <section className="py-16 md:py-20 bg-[#0a0a0a]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Turn Your Parking Space Into Monthly Income</h1>
-          <p className="mt-4 text-white/60 max-w-2xl mx-auto">
-            Partner with EZIT to deploy EV chargers at your location and create a new recurring revenue stream.
-          </p>
-        </div>
-      </section>
+    <div>
+      <PageHero
+        eyebrow="For landowners"
+        title={
+          <>
+            Turn parking into{" "}
+            <span className="text-ezit-green">monthly EV income</span>
+          </>
+        }
+        description="Partner with EZIT to deploy chargers at your location—we handle evaluation, installation, and operations so you can focus on your business."
+      >
+        <Link
+          href="#landowner"
+          className="px-6 py-3 rounded-full bg-white text-black font-medium text-sm hover:bg-white/90 transition-all duration-300"
+        >
+          Jump to application
+        </Link>
+      </PageHero>
 
-      <section className="py-16 bg-[#0d0d0d] border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center">Ideal Locations</h2>
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
-            {["Hotels", "Restaurants", "Shopping malls", "Highway properties", "Residential societies", "Petrol pumps"].map((location) => (
-              <div key={location} className="rounded-xl p-4 bg-white/[0.03] border border-white/[0.08] text-white/75 text-sm">
-                {location}
-              </div>
-            ))}
-          </div>
+      <PageSection
+        tone="muted"
+        header={{
+          eyebrow: "Fit checklist",
+          title: "Ideal locations",
+          description: "If your property matches one of these profiles, you are already in the right conversation.",
+        }}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+          {IDEAL.map((group) => (
+            <SubpageCard key={group.title}>
+              <h3 className="text-lg font-semibold text-white">{group.title}</h3>
+              <ul className="mt-4 space-y-2.5">
+                {group.items.map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-white/65">
+                    <span className="w-1.5 h-1.5 rounded-full bg-ezit-green/80 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </SubpageCard>
+          ))}
         </div>
-      </section>
+      </PageSection>
 
-      <section className="py-16 bg-[#0a0a0a] border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center">Land Requirements</h2>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {["Minimum two parking spaces", "Three-phase electricity", "Accessible location", "High vehicle visibility"].map((item) => (
-              <div key={item} className="rounded-xl p-4 bg-white/[0.03] border border-white/[0.08] text-white/75 text-sm">
-                {item}
-              </div>
-            ))}
-          </div>
+      <PageSection
+        tone="base"
+        header={{
+          eyebrow: "Requirements",
+          title: "What we look for on site",
+          description: "These fundamentals keep projects on schedule and performance strong after go-live.",
+        }}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6">
+          {REQUIREMENTS.map((req) => (
+            <SubpageCard key={req.title}>
+              <h3 className="text-lg font-semibold text-white">{req.title}</h3>
+              <p className="mt-3 text-sm text-white/60 leading-relaxed">{req.text}</p>
+            </SubpageCard>
+          ))}
         </div>
-      </section>
+      </PageSection>
 
-      <section className="py-16 bg-[#0d0d0d] border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center">Benefits</h2>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {["Passive income", "Property value increase", "More customer footfall", "Sustainability branding"].map((benefit) => (
-              <div key={benefit} className="rounded-xl p-4 bg-white/[0.03] border border-white/[0.08] text-white/75 text-sm">
-                {benefit}
+      <PageSection
+        tone="muted"
+        header={{
+          eyebrow: "Upside",
+          title: "Why hosts partner with EZIT",
+          description: "Charging is infrastructure—but the business case should still be simple.",
+        }}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {BENEFITS.map((benefit) => (
+            <SubpageCard key={benefit}>
+              <div className="flex gap-3">
+                <span className="shrink-0 w-8 h-8 rounded-lg bg-ezit-green/12 border border-ezit-green/25 flex items-center justify-center text-ezit-green text-xs font-bold">
+                  ✓
+                </span>
+                <p className="text-sm text-white/70 leading-relaxed">{benefit}</p>
               </div>
-            ))}
-          </div>
+            </SubpageCard>
+          ))}
         </div>
-      </section>
+      </PageSection>
 
-      <section className="py-16 bg-[#0a0a0a] border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center">How Hosting Works</h2>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {["Submit location details", "EZIT evaluates site", "Charger installation", "Revenue sharing begins"].map((step, index) => (
-              <div key={step} className="rounded-xl p-4 bg-white/[0.03] border border-white/[0.08]">
-                <p className="text-ezit-green text-sm font-semibold">Step {index + 1}</p>
-                <p className="text-white/75 text-sm mt-2">{step}</p>
-              </div>
-            ))}
-          </div>
+      <PageSection
+        tone="base"
+        header={{
+          eyebrow: "Timeline",
+          title: "How hosting works",
+          description: "A clear sequence from first details to first session.",
+        }}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          {STEPS.map((label, index) => (
+            <StepCard key={label} step={index + 1} title={label} />
+          ))}
         </div>
-      </section>
+      </PageSection>
 
       <LandownerForm />
     </div>

@@ -43,10 +43,10 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/host-a-charger"
+              href="/invest"
               className="inline-flex items-center px-5 py-2.5 rounded-full bg-white text-black text-sm font-medium hover:bg-white/90 transition-all duration-300"
             >
-              List Your Land
+              Own a Franchise
             </Link>
           </div>
 
@@ -78,11 +78,11 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/host-a-charger"
+              href="/invest"
               className="inline-flex items-center justify-center w-full mt-2 px-5 py-2.5 rounded-full bg-white text-black text-sm font-medium hover:bg-white/90 transition-all duration-300"
               onClick={() => setMenuOpen(false)}
             >
-              List Your Land
+              Own a Franchise
             </Link>
           </div>
         )}

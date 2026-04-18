@@ -70,7 +70,6 @@ const CHARGER_OFFERINGS = [
     power: "7.4kW – 22kW",
     imageSrc: "/images/chargers/ac-charger.png",
     imageAlt: "EZIT residential AC wallbox charger",
-    imageAspectClass: "aspect-[654/942]",
     specs: [
       { label: "Connector", value: "TYPE-2" },
       { label: "Charge time", value: "5–10 hours" },
@@ -84,7 +83,6 @@ const CHARGER_OFFERINGS = [
     power: "30kW – 360kW",
     imageSrc: "/images/chargers/dc-charger.png",
     imageAlt: "EZIT commercial DC fast charger",
-    imageAspectClass: "aspect-[704/956]",
     specs: [
       { label: "Connector", value: "CCS-2" },
       { label: "Charge time", value: "5–60 minutes" },
@@ -99,8 +97,8 @@ const ROLES = [
     eyebrow: "LAND",
     title: "Landowners",
     text: "Turn your unused parking space into a steady source of income while EZIT handles installation, operations, and maintenance.",
-    href: "/host-a-charger",
-    cta: "List your land",
+    href: "/invest",
+    cta: "Own a Franchise",
     icon: IconMapPin,
   },
   {
@@ -234,7 +232,7 @@ export default function Home() {
             <SubpageCard key={offering.segment} className="p-6 sm:p-8 group/offering overflow-hidden">
               <div className="flex flex-col md:flex-row md:items-stretch gap-6 md:gap-8">
                 <div
-                  className={`relative w-full max-w-[240px] mx-auto md:mx-0 md:w-48 lg:w-56 shrink-0 rounded-xl bg-white/[0.04] border border-white/[0.08] overflow-hidden transition-colors duration-300 group-hover/offering:border-white/15 ${offering.imageAspectClass}`}
+                  className="relative w-full max-w-[240px] mx-auto md:mx-0 md:w-48 lg:w-56 shrink-0 aspect-[4/5] rounded-xl bg-white/[0.04] border border-white/[0.08] overflow-hidden transition-colors duration-300 group-hover/offering:border-white/15"
                 >
                   <Image
                     src={offering.imageSrc}
@@ -370,7 +368,7 @@ export default function Home() {
           </>
         }
         description="List a site or talk to our team. We will qualify fit and outline the next steps."
-        primary={{ href: "/host-a-charger", label: "List your land" }}
+        primary={{ href: "/invest", label: "Own a Franchise" }}
         secondary={{ href: "/contact", label: "Talk to our team" }}
       />
     </>

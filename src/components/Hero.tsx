@@ -34,7 +34,7 @@ export default function Hero() {
           </div>
 
           <div className="relative flex justify-center lg:justify-end">
-            <div className="relative w-[300px] sm:w-[380px] lg:w-[440px] xl:w-[480px] motion-safe:animate-float">
+            <div className="relative w-[360px] sm:w-[460px] lg:w-[540px] xl:w-[600px] motion-safe:animate-float">
               <div
                 className="pointer-events-none absolute -inset-8 rounded-full bg-ezit-green/[0.06] blur-3xl motion-safe:animate-soft-pulse"
                 aria-hidden
@@ -45,8 +45,8 @@ export default function Hero() {
                 <Image
                   src={CHARGER_IMG}
                   alt="EZIT Premium Charging Station"
-                  width={480}
-                  height={760}
+                  width={600}
+                  height={950}
                   className="relative w-full h-auto drop-shadow-2xl"
                   priority
                 />

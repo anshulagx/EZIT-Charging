@@ -84,10 +84,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <p className="text-sm text-white/45 mb-4">Next step</p>
               <div className="flex flex-wrap gap-3">
                 <Link
-                  href="/host-a-charger"
+                  href="/invest"
                   className="px-5 py-2.5 rounded-full bg-ezit-green text-white text-sm font-medium hover:bg-ezit-green-hover transition-colors"
                 >
-                  List your land
+                  Own a Franchise
                 </Link>
                 <Link
                   href="/contact"

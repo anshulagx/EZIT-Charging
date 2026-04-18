@@ -39,7 +39,7 @@ export default function BlogPage() {
         eyebrow="Insights"
         title={
           <>
-            Blog & <span className="text-ezit-green">resources</span>
+            Blog & <span className="text-white/90">resources</span>
           </>
         }
         description="Short, practical notes on EV charging economics, deployment, and what strong operations look like in India."
@@ -49,14 +49,14 @@ export default function BlogPage() {
         <Link href={`/blog/${featured.slug}`} className="group block">
           <SubpageCard className="p-8 sm:p-10 md:p-12 md:grid md:grid-cols-12 md:gap-10 items-center">
             <div className="md:col-span-7">
-              <span className="text-xs font-semibold uppercase tracking-wider text-ezit-green">Featured</span>
-              <h2 className="mt-3 text-2xl sm:text-3xl font-bold text-white group-hover:text-ezit-green transition-colors text-balance">
+              <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Featured</span>
+              <h2 className="mt-3 text-2xl sm:text-3xl font-bold text-white group-hover:text-white transition-colors text-balance">
                 {featured.title}
               </h2>
               <p className="mt-4 text-white/55 leading-relaxed">{featured.excerpt}</p>
               <div className="mt-6 flex flex-wrap items-center gap-4 text-sm">
                 <span className="text-white/40">{featured.read}</span>
-                <span className="inline-flex items-center gap-1 text-ezit-green font-medium">
+                <span className="inline-flex items-center gap-1 text-white/70 font-medium">
                   Read article
                   <span aria-hidden className="transition-transform group-hover:translate-x-0.5 inline-block">
                     →
@@ -65,7 +65,7 @@ export default function BlogPage() {
               </div>
             </div>
             <div className="hidden md:flex md:col-span-5 justify-end">
-              <div className="w-full max-w-[220px] aspect-square rounded-2xl bg-gradient-to-br from-ezit-green/20 to-white/[0.04] border border-ezit-green/20 flex items-center justify-center">
+              <div className="w-full max-w-[220px] aspect-square rounded-2xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/15 flex items-center justify-center">
                 <span className="text-6xl font-bold text-white/[0.08]">EZIT</span>
               </div>
             </div>
@@ -78,13 +78,13 @@ export default function BlogPage() {
             <article key={post.slug}>
               <Link href={`/blog/${post.slug}`} className="group block h-full">
                 <SubpageCard className="h-full flex flex-col">
-                  <h3 className="text-lg font-semibold text-white group-hover:text-ezit-green transition-colors leading-snug">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-white transition-colors leading-snug">
                     {post.title}
                   </h3>
                   <p className="mt-3 text-sm text-white/55 leading-relaxed flex-1">{post.excerpt}</p>
                   <div className="mt-6 flex items-center justify-between gap-3 text-sm">
                     <span className="text-white/35">{post.read}</span>
-                    <span className="text-ezit-green font-medium inline-flex items-center gap-1">
+                    <span className="text-white/70 font-medium inline-flex items-center gap-1">
                       Read
                       <span className="transition-transform group-hover:translate-x-0.5 inline-block" aria-hidden>
                         →

@@ -39,10 +39,10 @@ export default function ContactPage() {
         eyebrow="Get in touch"
         title={
           <>
-            Contact <span className="text-ezit-green">EZIT</span>
+            Contact EZIT
           </>
         }
-        description="Hosting, investing, partnerships, or press—we route your message to the right team quickly."
+        description="Hosting, investing, partnerships, or press: we route your message to the right team quickly."
       />
 
       <PageSection tone="muted">
@@ -69,7 +69,7 @@ export default function ContactPage() {
                   <textarea id="contact-message" name="message" required rows={4} placeholder="How can we help?" />
                 </div>
                 {error ? <p className="text-red-400 text-sm">{error}</p> : null}
-                {success ? <p className="text-emerald-400 text-sm">{success}</p> : null}
+                {success ? <p className="text-ezit-green text-sm">{success}</p> : null}
                 <button
                   type="submit"
                   disabled={loading}
@@ -87,13 +87,13 @@ export default function ContactPage() {
               <ul className="mt-5 space-y-4 text-sm">
                 <li>
                   <span className="block text-white/40 text-xs uppercase tracking-wider mb-0.5">Phone</span>
-                  <a href="tel:+917076989898" className="text-white/85 hover:text-ezit-green transition-colors">
+                  <a href="tel:+917076989898" className="text-white/85 hover:text-white transition-colors">
                     +91 70 76 98 98 98
                   </a>
                 </li>
                 <li>
                   <span className="block text-white/40 text-xs uppercase tracking-wider mb-0.5">Email</span>
-                  <a href="mailto:contact@ezit.co.in" className="text-white/85 hover:text-ezit-green transition-colors break-all">
+                  <a href="mailto:contact@ezit.co.in" className="text-white/85 hover:text-white transition-colors break-all">
                     contact@ezit.co.in
                   </a>
                 </li>

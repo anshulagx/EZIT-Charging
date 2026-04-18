@@ -16,10 +16,10 @@ export default function LocationsPage() {
         eyebrow="Network"
         title={
           <>
-            EZIT locations across <span className="text-ezit-green">India</span>
+            EZIT locations across <span className="text-white/90">India</span>
           </>
         }
-        description="Explore where we operate today—and how new partner sites join the map as we scale reliable fast charging."
+        description="Explore where we operate today, and how new partner sites join the map as we scale reliable fast charging."
       >
         <Link
           href="/charging-locations"
@@ -40,13 +40,13 @@ export default function LocationsPage() {
         header={{
           eyebrow: "Snapshot",
           title: "How the network shows up on the ground",
-          description: "We prioritize dependable uptime and clear driver experience—so locations earn trust repeat visits.",
+          description: "We prioritize dependable uptime and clear driver experience, so locations earn trust and repeat visits.",
         }}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 mb-10 md:mb-12">
           {SNAPSHOT.map((item) => (
             <SubpageCard key={item.label}>
-              <p className="text-xs font-semibold uppercase tracking-wider text-ezit-green">{item.label}</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-white/50">{item.label}</p>
               <p className="mt-3 text-lg font-semibold text-white">{item.value}</p>
               <p className="mt-2 text-sm text-white/50">{item.hint}</p>
             </SubpageCard>

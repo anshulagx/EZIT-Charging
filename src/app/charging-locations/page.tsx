@@ -18,10 +18,10 @@ function AvailabilityPill({ status }: { status: string }) {
       className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border ${
         busy
           ? "bg-amber-500/10 border-amber-500/25 text-amber-200/90"
-          : "bg-emerald-500/10 border-emerald-500/25 text-emerald-200/90"
+          : "bg-white/[0.08] border-white/20 text-white/85"
       }`}
     >
-      <span className={`w-1.5 h-1.5 rounded-full mr-1.5 ${busy ? "bg-amber-400" : "bg-emerald-400"}`} />
+      <span className={`w-1.5 h-1.5 rounded-full mr-1.5 ${busy ? "bg-amber-400" : "bg-white/50"}`} />
       {status}
     </span>
   );
@@ -34,10 +34,10 @@ export default function ChargingLocationsPage() {
         eyebrow="Drivers"
         title={
           <>
-            Find <span className="text-ezit-green">EZIT</span> charging stations
+            Find EZIT charging stations
           </>
         }
-        description="Search the network, filter by charger type, and preview stations before you arrive—fast sessions and simple payments."
+        description="Search the network, filter by charger type, and preview stations before you arrive, with fast sessions and simple payments."
       >
         <Link
           href="/locations"
@@ -67,7 +67,7 @@ export default function ChargingLocationsPage() {
         header={{
           eyebrow: "Stations",
           title: "Featured locations",
-          description: "Representative sites across the network—availability updates as utilization changes.",
+          description: "Representative sites across the network. Availability updates as utilization changes.",
         }}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
@@ -97,10 +97,10 @@ export default function ChargingLocationsPage() {
       <PageCTA
         title={
           <>
-            Want charging <span className="text-ezit-green">near you?</span>
+            Want charging near you?
           </>
         }
-        description="Request a site or list land—EZIT evaluates demand and feasibility for new deployments."
+        description="Request a site or list land. EZIT evaluates demand and feasibility for new deployments."
         primary={{ href: "/host-a-charger", label: "Host a charger" }}
         secondary={{ href: "/contact", label: "Contact us" }}
       />

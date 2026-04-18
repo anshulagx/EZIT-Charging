@@ -1,3 +1,4 @@
+import InvestROICalculator from "@/components/InvestROICalculator";
 import InvestorForm from "@/components/InvestorForm";
 import PageHero from "@/components/subpage/PageHero";
 import PageSection from "@/components/subpage/PageSection";
@@ -18,10 +19,10 @@ export default function InvestPage() {
         eyebrow="For investors"
         title={
           <>
-            Invest in <span className="text-ezit-green">India&apos;s charging build-out</span>
+            Invest in <span className="text-white/90">India&apos;s charging build-out</span>
           </>
         }
-        description="Participate in a fast-scaling infrastructure category with EZIT execution, operations, and partner alignment—from site selection to long-term uptime."
+        description="Participate in a fast-scaling infrastructure category with EZIT execution, operations, and partner alignment, from site selection to long-term uptime."
       />
 
       <PageSection tone="muted" header={{ eyebrow: "Market", title: "Why charging demand is structural" }}>
@@ -32,7 +33,7 @@ export default function InvestPage() {
               good sites, underutilized broken hardware elsewhere, and driver preference for networks that simply work.
             </p>
             <p className="text-white/55 leading-relaxed text-sm">
-              EZIT focuses on locations with real dwell or flow, electrical realism, and operating discipline—so assets
+              EZIT focuses on locations with real dwell or flow, electrical realism, and operating discipline, so assets
               are positioned for utilization, not just headlines.
             </p>
           </div>
@@ -57,27 +58,38 @@ export default function InvestPage() {
         header={{
           eyebrow: "Models",
           title: "Investment structures",
-          description: "We work with partners under flexible arrangements—choose what matches your risk, capex, and involvement preference.",
+          description: "We work with partners under flexible arrangements. Choose what matches your risk, capex, and involvement preference.",
         }}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           <SubpageCard className="p-8">
-            <span className="text-xs font-semibold uppercase tracking-wider text-ezit-green">Franchise-style</span>
+            <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Franchise-style</span>
             <h3 className="mt-2 text-xl font-semibold text-white">Franchise model</h3>
             <p className="mt-3 text-sm text-white/60 leading-relaxed">
-              Partner funds infrastructure while EZIT manages installation, operations, and uptime—built for operators who
+              Partner funds infrastructure while EZIT manages installation, operations, and uptime, built for operators who
               want exposure without running day-to-day field work.
             </p>
           </SubpageCard>
-          <SubpageCard className="p-8 ring-1 ring-ezit-green/15">
-            <span className="text-xs font-semibold uppercase tracking-wider text-ezit-green">Shared capex</span>
+          <SubpageCard className="p-8 ring-1 ring-white/10">
+            <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Shared capex</span>
             <h3 className="mt-2 text-xl font-semibold text-white">Co-investment model</h3>
             <p className="mt-3 text-sm text-white/60 leading-relaxed">
-              EZIT and partners share capex with a revenue split matched to contribution—useful when both sides want aligned
+              EZIT and partners share capex with a revenue split matched to contribution, useful when both sides want aligned
               incentives at the asset level.
             </p>
           </SubpageCard>
         </div>
+      </PageSection>
+
+      <PageSection
+        tone="deep"
+        header={{
+          eyebrow: "Estimator",
+          title: "Calculate your ROI",
+          description: "Model monthly cash flow and simple payback from utilization and unit economics, aligned with how we discuss franchise-style sites.",
+        }}
+      >
+        <InvestROICalculator />
       </PageSection>
 
       <PageSection tone="muted" header={{ eyebrow: "Snapshot", title: "Financial overview (indicative)" }}>
@@ -117,13 +129,13 @@ export default function InvestPage() {
         header={{
           eyebrow: "Operator layer",
           title: "What EZIT provides",
-          description: "Investors plug into an operating system—not just a hardware purchase.",
+          description: "Investors plug into an operating system, not just a hardware purchase.",
         }}
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
           {PROVIDES.map((item) => (
             <SubpageCard key={item} className="!p-4 text-center sm:text-left">
-              <div className="mx-auto sm:mx-0 w-9 h-9 rounded-lg bg-ezit-green/12 border border-ezit-green/25 flex items-center justify-center text-ezit-green text-xs font-bold mb-3">
+              <div className="mx-auto sm:mx-0 w-9 h-9 rounded-lg bg-white/[0.08] border border-white/15 flex items-center justify-center text-white/75 text-xs font-bold mb-3">
                 ✓
               </div>
               <p className="text-sm text-white/75 leading-snug">{item}</p>

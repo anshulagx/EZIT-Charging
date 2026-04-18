@@ -17,6 +17,25 @@ const config: Config = {
         "ezit-green": "#22c55e",
         "ezit-green-hover": "#16a34a",
       },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "soft-pulse": {
+          "0%, 100%": { opacity: "0.45" },
+          "50%": { opacity: "0.9" },
+        },
+      },
+      animation: {
+        float: "float 7s ease-in-out infinite",
+        "fade-in": "fade-in 0.5s ease-out forwards",
+        "soft-pulse": "soft-pulse 2.8s ease-in-out infinite",
+      },
     },
   },
   plugins: [],

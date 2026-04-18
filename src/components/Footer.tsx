@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { IconBanknotes, IconBolt, IconShieldCheck } from "@/components/icons";
 
 const LOGO_URL = "/images/ezit-logo.jpg";
 
@@ -110,16 +111,22 @@ export default function Footer() {
               Company
             </h3>
             <ul className="space-y-3 text-sm text-white/50">
-              <li className="flex items-center gap-2">
-                <div className="w-1 h-1 rounded-full bg-ezit-green" />
+              <li className="flex items-center gap-2.5">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-white/[0.06] border border-white/10 text-ezit-green/90">
+                  <IconBolt className="w-3.5 h-3.5" aria-hidden />
+                </span>
                 Fast Charging
               </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1 h-1 rounded-full bg-ezit-green" />
+              <li className="flex items-center gap-2.5">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-white/[0.06] border border-white/10 text-ezit-green/90">
+                  <IconBanknotes className="w-3.5 h-3.5" aria-hidden />
+                </span>
                 App-Free UPI Payments
               </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1 h-1 rounded-full bg-ezit-green" />
+              <li className="flex items-center gap-2.5">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-white/[0.06] border border-white/10 text-ezit-green/90">
+                  <IconShieldCheck className="w-3.5 h-3.5" aria-hidden />
+                </span>
                 Reliable Infrastructure
               </li>
             </ul>

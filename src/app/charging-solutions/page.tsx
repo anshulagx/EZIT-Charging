@@ -8,8 +8,8 @@ import { SubpageCard } from "@/components/subpage/SubpageCard";
 function CheckItem({ children }: { children: ReactNode }) {
   return (
     <li className="flex gap-3 text-sm text-white/70">
-      <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-ezit-green/15 border border-ezit-green/30 flex items-center justify-center">
-        <svg className="w-3 h-3 text-ezit-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+      <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-white/[0.08] border border-white/20 flex items-center justify-center">
+        <svg className="w-3 h-3 text-white/75" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
         </svg>
       </span>
@@ -25,10 +25,10 @@ export default function ChargingSolutionsPage() {
         eyebrow="Hardware"
         title={
           <>
-            Charging solutions for <span className="text-ezit-green">every use case</span>
+            Charging solutions for <span className="text-white/90">every use case</span>
           </>
         }
-        description="Reliable AC and DC infrastructure—from apartments and workplaces to highways and high-throughput hubs."
+        description="Reliable AC and DC infrastructure, from apartments and workplaces to highways and high-throughput hubs."
       >
         <Link
           href="/contact"
@@ -43,14 +43,14 @@ export default function ChargingSolutionsPage() {
         header={{
           eyebrow: "Product lines",
           title: "AC destination & DC fast charging",
-          description: "Pick the right tool for dwell time, traffic, and electrical capacity—we help you size responsibly.",
+          description: "Pick the right tool for dwell time, traffic, and electrical capacity. We help you size responsibly.",
         }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           <SubpageCard className="p-8">
             <div className="flex items-start justify-between gap-4 flex-wrap">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-ezit-green">Destination</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Destination</span>
                 <h2 className="mt-2 text-2xl font-bold text-white">AC chargers</h2>
                 <p className="mt-2 text-white/55 text-sm">7.4kW to 22kW for overnight, workplace, and retail dwell.</p>
               </div>
@@ -65,14 +65,14 @@ export default function ChargingSolutionsPage() {
             </ul>
           </SubpageCard>
 
-          <SubpageCard className="p-8 ring-1 ring-ezit-green/15">
+          <SubpageCard className="p-8 ring-1 ring-white/10">
             <div className="flex items-start justify-between gap-4 flex-wrap">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-ezit-green">High throughput</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-white/50">High throughput</span>
                 <h2 className="mt-2 text-2xl font-bold text-white">DC fast chargers</h2>
                 <p className="mt-2 text-white/55 text-sm">30kW to 360kW for corridors, malls, fleets, and transit nodes.</p>
               </div>
-              <div className="px-3 py-1 rounded-full bg-ezit-green/10 border border-ezit-green/25 text-xs text-ezit-green">
+              <div className="px-3 py-1 rounded-full bg-white/[0.08] border border-white/15 text-xs text-white/65">
                 Fast turnaround
               </div>
             </div>
@@ -88,10 +88,10 @@ export default function ChargingSolutionsPage() {
       <PageCTA
         title={
           <>
-            Not sure which charger fits? <span className="text-ezit-green">We&apos;ll size it.</span>
+            Not sure which charger fits? We&apos;ll size it.
           </>
         }
-        description="Share your site context and traffic—we recommend an architecture that matches demand and electrical readiness."
+        description="Share your site context and traffic. We recommend an architecture that matches demand and electrical readiness."
         primary={{ href: "/host-a-charger", label: "Submit your location" }}
         secondary={{ href: "/contact", label: "Speak with sales" }}
       />

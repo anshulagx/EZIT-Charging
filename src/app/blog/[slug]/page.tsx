@@ -63,7 +63,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="max-w-3xl mx-auto">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-ezit-green hover:text-white transition-colors font-medium"
+            className="inline-flex items-center gap-2 text-sm text-white/65 hover:text-white transition-colors font-medium"
           >
             <span aria-hidden>←</span> Back to blog
           </Link>

@@ -44,7 +44,7 @@ export default function PageSection({
             }
           >
             {header.eyebrow ? (
-              <p className="text-xs font-semibold tracking-wider text-ezit-green uppercase mb-3">{header.eyebrow}</p>
+              <p className="text-xs font-semibold tracking-wider text-white/50 uppercase mb-3">{header.eyebrow}</p>
             ) : null}
             <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-bold text-white text-balance">{header.title}</h2>
             {header.description ? (

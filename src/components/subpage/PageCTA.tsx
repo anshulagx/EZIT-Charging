@@ -10,9 +10,10 @@ type PageCTAProps = {
   description?: string;
   primary: LinkSpec;
   secondary?: LinkSpec;
+  extra?: ReactNode;
 };
 
-export default function PageCTA({ title, description, primary, secondary }: PageCTAProps) {
+export default function PageCTA({ title, description, primary, secondary, extra }: PageCTAProps) {
   return (
     <PageSection tone="base" className="!pt-12 md:!pt-16">
       <div className="max-w-4xl mx-auto">
@@ -42,6 +43,7 @@ export default function PageCTA({ title, description, primary, secondary }: Page
                 </Link>
               ) : null}
             </div>
+            {extra ? <div className="mt-6">{extra}</div> : null}
           </div>
         </div>
       </div>

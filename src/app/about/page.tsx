@@ -1,7 +1,36 @@
+import type { Metadata } from "next";
 import PageCTA from "@/components/subpage/PageCTA";
 import PageHero from "@/components/subpage/PageHero";
 import PageSection from "@/components/subpage/PageSection";
+import StatsBand from "@/components/StatsBand";
+import TrustedProperties from "@/components/TrustedProperties";
 import { SubpageCard } from "@/components/subpage/SubpageCard";
+import { IconBuilding, IconGlobe, IconUsers } from "@/components/icons";
+
+export const metadata: Metadata = {
+  title: "About EZIT — Green Energy Arm of Black Cobra Group (Est. 1992)",
+  description:
+    "EZIT is the EV charging arm of the 33-year-old Black Cobra Group. We build, own and operate India's most reliable charging network across Delhi NCR, Punjab & Haryana.",
+  alternates: { canonical: "/about" },
+};
+
+const PILLARS = [
+  {
+    icon: IconBuilding,
+    title: "Building Materials",
+    desc: "Black Cobra Ply, Mica & WPC, plus Alex aluminium panels — trusted infrastructure products built over three decades.",
+  },
+  {
+    icon: IconUsers,
+    title: "Education",
+    desc: "Quantum University, Roorkee — a top-60 ranked B-school developing future-ready talent.",
+  },
+  {
+    icon: IconGlobe,
+    title: "Green Energy",
+    desc: "From fuel stations to EV charging — EZIT carries the group's energy legacy into clean mobility.",
+  },
+] as const;
 
 export default function AboutPage() {
   return (
@@ -14,28 +43,38 @@ export default function AboutPage() {
             <span className="text-ezit-green">India&apos;s EV future</span>
           </>
         }
-        description="EZIT is the green energy initiative of the Black Cobra Group—focused on reliable charging access, operational depth, and long-term partnerships."
+        description="EZIT is the green energy arm of the 33-year-old Black Cobra Group. You're partnering with a group with deep execution experience — not a startup that may disappear next year."
       />
 
       <PageSection
         tone="muted"
         header={{
           eyebrow: "Who we are",
-          title: "Company background",
+          title: "A 33-year-old group behind every charger",
           description:
-            "Backed by Black Cobra Group's infrastructure legacy since 1992, EZIT brings execution depth, operational reliability, and long-term growth focus to the EV ecosystem.",
+            "Founded in 1992, the Black Cobra Group spans three pillars. EZIT brings that execution depth, operational reliability, and long-term focus to EV charging.",
         }}
       >
-        <SubpageCard hover={false} className="p-8 sm:p-10 max-w-4xl mx-auto text-center">
-          <p className="text-white/65 leading-relaxed text-base">
-            From highways to commercial hubs, we combine disciplined project delivery with charger uptime and payment
-            experiences drivers actually use—so partners earn with confidence.
-          </p>
-        </SubpageCard>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+          {PILLARS.map((p) => {
+            const PIcon = p.icon;
+            return (
+              <SubpageCard key={p.title} className="group/pillar">
+                <div className="w-11 h-11 rounded-xl bg-white/[0.08] border border-white/15 flex items-center justify-center text-white/75 mb-4 transition-all duration-300 group-hover/pillar:scale-110 group-hover/pillar:border-ezit-green/35 group-hover/pillar:text-ezit-green">
+                  <PIcon className="w-6 h-6" aria-hidden />
+                </div>
+                <h3 className="text-base font-semibold text-white">{p.title}</h3>
+                <p className="mt-2 text-sm text-white/55 leading-relaxed">{p.desc}</p>
+              </SubpageCard>
+            );
+          })}
+        </div>
       </PageSection>
 
+      <StatsBand tone="base" />
+
       <PageSection
-        tone="base"
+        tone="muted"
         header={{
           eyebrow: "Direction",
           title: "Mission, vision & history",
@@ -60,15 +99,17 @@ export default function AboutPage() {
             </p>
           </SubpageCard>
           <SubpageCard>
-            <div className="text-xs font-semibold uppercase tracking-wider text-ezit-green mb-2">Group history</div>
-            <h3 className="text-xl font-semibold text-white">Decades of execution</h3>
+            <div className="text-xs font-semibold uppercase tracking-wider text-ezit-green mb-2">Where we operate</div>
+            <h3 className="text-xl font-semibold text-white">Delhi NCR to Bengaluru</h3>
             <p className="mt-3 text-sm text-white/60 leading-relaxed">
-              Industrial and infrastructure experience adapted for next-generation mobility—safety, compliance, and
-              field operations included.
+              Live along the NH-44 Delhi–Ambala–Ludhiana–Amritsar corridor — Zirakpur, Mohali, Ambala, Dera Bassi — and
+              in Bengaluru.
             </p>
           </SubpageCard>
         </div>
       </PageSection>
+
+      <TrustedProperties tone="base" />
 
       <PageCTA
         title={
@@ -76,9 +117,9 @@ export default function AboutPage() {
             Partner with <span className="text-ezit-green">EZIT</span>
           </>
         }
-        description="List a site, explore investment models, or talk to our team about your location."
-        primary={{ href: "/host-a-charger", label: "Host a charger" }}
-        secondary={{ href: "/contact", label: "Contact us" }}
+        description="List your land, own a franchise, or talk to our team about your location."
+        primary={{ href: "/host-a-charger", label: "List Your Land" }}
+        secondary={{ href: "/invest", label: "Own a Franchise" }}
       />
     </div>
   );

@@ -16,7 +16,7 @@ export default function ChargingLocationFilters() {
             <IconMapPin className="w-4 h-4 text-ezit-green/80 shrink-0" aria-hidden />
             Search by city
           </label>
-          <input id="charging-city-search" type="text" name="city" placeholder="e.g. New Delhi, Gurugram, Jaipur" />
+          <input id="charging-city-search" type="text" name="city" placeholder="e.g. Ambala, Mohali, Zirakpur" />
         </div>
         <div className="lg:col-span-5">
           <span className="flex items-center gap-2 text-sm font-medium text-white/80 mb-1.5">

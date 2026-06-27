@@ -1,9 +1,18 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import PageCTA from "@/components/subpage/PageCTA";
 import PageHero from "@/components/subpage/PageHero";
 import PageSection from "@/components/subpage/PageSection";
 import { SubpageCard } from "@/components/subpage/SubpageCard";
+import { SPECS } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "AC & DC EV Charger Hardware for Every Property | EZIT",
+  description:
+    "From 7.4 kW AC wallboxes to 360 kW DC fast chargers. EZIT sizes the right charger for your site, footfall and power supply.",
+  alternates: { canonical: "/charging-solutions" },
+};
 
 function CheckItem({ children }: { children: ReactNode }) {
   return (
@@ -15,6 +24,19 @@ function CheckItem({ children }: { children: ReactNode }) {
       </span>
       <span className="leading-relaxed">{children}</span>
     </li>
+  );
+}
+
+function SpecRows({ rows }: { rows: { label: string; value: string }[] }) {
+  return (
+    <dl className="mt-8 space-y-3 border-t border-white/[0.08] pt-6">
+      {rows.map((row) => (
+        <div key={row.label} className="flex flex-col sm:flex-row sm:gap-4 sm:justify-between gap-0.5 text-sm">
+          <dt className="text-white/45 shrink-0">{row.label}</dt>
+          <dd className="text-white/80 sm:text-right leading-relaxed">{row.value}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 
@@ -52,10 +74,10 @@ export default function ChargingSolutionsPage() {
               <div>
                 <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Destination</span>
                 <h2 className="mt-2 text-2xl font-bold text-white">AC chargers</h2>
-                <p className="mt-2 text-white/55 text-sm">7.4kW to 22kW for overnight, workplace, and retail dwell.</p>
+                <p className="mt-2 text-white/55 text-sm">{SPECS.ac.power} for overnight, workplace, and retail dwell.</p>
               </div>
               <div className="px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-xs text-white/50">
-                Lower capex
+                {SPECS.ac.fromPrice}
               </div>
             </div>
             <ul className="mt-8 space-y-3">
@@ -63,6 +85,15 @@ export default function ChargingSolutionsPage() {
               <CheckItem>Scheduled and controlled charging where needed</CheckItem>
               <CheckItem>Built-in safety and surge protection</CheckItem>
             </ul>
+            <SpecRows
+              rows={[
+                { label: "Power", value: SPECS.ac.power },
+                { label: "Connector", value: SPECS.ac.connector },
+                { label: "Charge time", value: SPECS.ac.chargeTime },
+                { label: "Payment", value: SPECS.ac.payment },
+                { label: "Safety", value: SPECS.ac.safety },
+              ]}
+            />
           </SubpageCard>
 
           <SubpageCard className="p-8 ring-1 ring-white/10">
@@ -70,10 +101,10 @@ export default function ChargingSolutionsPage() {
               <div>
                 <span className="text-xs font-semibold uppercase tracking-wider text-white/50">High throughput</span>
                 <h2 className="mt-2 text-2xl font-bold text-white">DC fast chargers</h2>
-                <p className="mt-2 text-white/55 text-sm">30kW to 360kW for corridors, malls, fleets, and transit nodes.</p>
+                <p className="mt-2 text-white/55 text-sm">{SPECS.dc.power} for corridors, malls, fleets, and transit nodes.</p>
               </div>
               <div className="px-3 py-1 rounded-full bg-white/[0.08] border border-white/15 text-xs text-white/65">
-                Fast turnaround
+                {SPECS.dc.fromPrice}
               </div>
             </div>
             <ul className="mt-8 space-y-3">
@@ -81,18 +112,23 @@ export default function ChargingSolutionsPage() {
               <CheckItem>Strong fit for fleets and mixed commercial sites</CheckItem>
               <CheckItem>24×7 monitoring and uptime-focused operations</CheckItem>
             </ul>
+            <SpecRows
+              rows={[
+                { label: "Power", value: SPECS.dc.power },
+                { label: "Connector", value: SPECS.dc.connector },
+                { label: "Charge time", value: SPECS.dc.chargeTime },
+                { label: "Payment", value: SPECS.dc.payment },
+                { label: "Safety", value: SPECS.dc.safety },
+              ]}
+            />
           </SubpageCard>
         </div>
       </PageSection>
 
       <PageCTA
-        title={
-          <>
-            Not sure which charger fits? We&apos;ll size it.
-          </>
-        }
+        title={<>Not sure which charger fits? We&apos;ll size it.</>}
         description="Share your site context and traffic. We recommend an architecture that matches demand and electrical readiness."
-        primary={{ href: "/host-a-charger", label: "Submit your location" }}
+        primary={{ href: "/host-a-charger", label: "List Your Land" }}
         secondary={{ href: "/contact", label: "Speak with sales" }}
       />
     </div>

@@ -1,32 +1,40 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/subpage/PageHero";
 import PageSection from "@/components/subpage/PageSection";
 import { SubpageCard } from "@/components/subpage/SubpageCard";
 
+export const metadata: Metadata = {
+  title: "EV Charging Insights — Franchise, Land & Hardware Guides | EZIT",
+  description:
+    "Practical guides on starting an EV charging franchise in India, earning from your land, and choosing AC vs DC chargers for your property.",
+  alternates: { canonical: "/blog" },
+};
+
 const posts = [
   {
-    slug: "ev-charging-business-india",
-    title: "EV charging business in India",
-    excerpt: "A practical guide to evaluating locations, demand, and operating models.",
-    read: "6 min read",
-  },
-  {
-    slug: "cost-of-ev-charging-station",
-    title: "Cost of EV charging station",
-    excerpt: "Understand capex drivers, charger configurations, and planning assumptions.",
+    slug: "start-ev-charging-franchise-india",
+    title: "How to start an EV charging station franchise in India",
+    excerpt: "Costs, licensing, site selection and ROI — a step-by-step guide to owning a charging franchise.",
     read: "7 min read",
   },
   {
-    slug: "earn-from-ev-chargers",
-    title: "How to earn from EV chargers",
-    excerpt: "Revenue pathways for landowners and charging infrastructure partners.",
+    slug: "earn-renting-land-ev-charging",
+    title: "How much can you earn renting land for EV charging",
+    excerpt: "What landowners actually make, how revenue share works, and what makes a site valuable.",
     read: "5 min read",
   },
   {
-    slug: "ev-infrastructure-growth-india",
-    title: "EV infrastructure growth in India",
-    excerpt: "Why charger expansion is central to India's EV adoption curve.",
+    slug: "ac-vs-dc-charging",
+    title: "AC vs DC charging: which is right for your property",
+    excerpt: "Power, charge time, cost and the right fit for homes, offices, malls and highways.",
     read: "6 min read",
+  },
+  {
+    slug: "cost-of-ev-charging-station-india",
+    title: "How much does an EV charging station cost in India",
+    excerpt: "Capex drivers from AC wallboxes to 360 kW DC fast chargers, plus the economics behind them.",
+    read: "7 min read",
   },
 ] as const;
 

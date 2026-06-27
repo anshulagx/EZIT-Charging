@@ -1,47 +1,71 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHero from "@/components/subpage/PageHero";
 import PageSection from "@/components/subpage/PageSection";
 import { SubpageCard } from "@/components/subpage/SubpageCard";
 
-const CONTENT: Record<string, { title: string; body: string[]; read: string }> = {
-  "ev-charging-business-india": {
-    title: "EV charging business in India",
-    read: "6 min read",
-    body: [
-      "India's charging opportunity is driven by rapid EV adoption and infrastructure gaps across highways and urban clusters.",
-      "Successful projects start with location fundamentals: traffic mix, dwell time, electrical readiness, and visibility.",
-      "Operators that combine reliable uptime, easy payments, and clear pricing create stronger utilization and repeat demand.",
-    ],
-  },
-  "cost-of-ev-charging-station": {
-    title: "Cost of EV charging station",
+const CONTENT: Record<string, { title: string; description: string; body: string[]; read: string }> = {
+  "start-ev-charging-franchise-india": {
+    title: "How to start an EV charging station franchise in India",
+    description:
+      "A step-by-step guide to starting an EV charging franchise in India — cost, licensing, site selection and ROI.",
     read: "7 min read",
     body: [
-      "Charging station economics vary by charger type, site readiness, civil works, transformer requirements, and software stack.",
-      "AC setups typically have lower initial capex, while DC fast charging needs higher upfront investment but supports higher throughput.",
-      "A practical financial model should include installation, energy costs, operations, service uptime, and demand growth assumptions.",
+      "Starting an EV charging station franchise in India is now simpler than ever: charging is a de-licensed activity under the 2024 Ministry of Power guidelines, so you don't need a power licence to operate a station.",
+      "A typical DC fast-charging franchise starts from around ₹10–15 lakh including hardware and infrastructure. The biggest driver of returns is location — high-dwell, high-traffic sites like malls, highways and commercial complexes utilise better.",
+      "With EZIT, you invest in the charger while we secure the location, install, own and operate everything end-to-end. A well-utilised DC site typically delivers around 45% annual ROI with a 2–3 year payback.",
+      "The practical path: speak to an operator, model your returns with an ROI calculator, and confirm the site, tariff and agreement structure before committing.",
     ],
   },
-  "earn-from-ev-chargers": {
-    title: "How to earn from EV chargers",
+  "earn-renting-land-ev-charging": {
+    title: "How much can you earn renting land for EV charging",
+    description:
+      "What landowners earn renting land for EV charging in India, how revenue share works, and what makes a site valuable.",
     read: "5 min read",
     body: [
-      "Landowners can monetize parking space through fixed rent, revenue share, or hybrid structures based on station performance.",
-      "Partner outcomes improve with high-visibility locations, stable electricity, and a strong operations partner.",
-      "As EV penetration grows, early hosts can gain recurring income and stronger commercial footfall advantages.",
+      "If you own land, a mall, hotel or petrol pump, you can earn monthly income by hosting an EV charger — often with zero investment and zero operations on your side.",
+      "With EZIT's List Your Land model, we bear 100% of the charger and installation cost, include AI 360° security and 24/7 monitoring, and pay you a transparent monthly revenue share, on time.",
+      "Earnings depend on footfall, charger type and location. Sites with steady dwell time — shopping malls, highway restaurants, residential societies — see higher utilisation and therefore higher revenue.",
+      "The best part: a free, no-obligation site survey tells you what your specific location can earn before you commit to anything.",
     ],
   },
-  "ev-infrastructure-growth-india": {
-    title: "EV infrastructure growth in India",
+  "ac-vs-dc-charging": {
+    title: "AC vs DC charging: which is right for your property",
+    description:
+      "AC vs DC EV charging compared — power, charge time, cost and the right fit for homes, offices, malls and highways.",
     read: "6 min read",
     body: [
-      "The next phase of EV adoption depends on dependable public charging access in both metros and intercity corridors.",
-      "Network expansion should combine demand signals from drivers with site partnerships from landowners and investors.",
-      "Infrastructure programs that prioritize reliability and convenience will accelerate adoption and long-term utilization.",
+      "AC chargers (7.4–22 kW, Type-2) are destination chargers: they take 2–8 hours for a full charge and suit places where vehicles park for a while — apartments, offices and hotels. They start from around ₹1.5 lakh.",
+      "DC fast chargers (30–360 kW, CCS-2) deliver a charge in 5–60 minutes and suit high-throughput sites — highways, malls, fleets and transit nodes. They need higher investment, from around ₹10 lakh, but support far more sessions per day.",
+      "The right choice comes down to dwell time, traffic and your available power supply. Long dwell with modest traffic favours AC; quick turnaround with high traffic favours DC.",
+      "EZIT sizes the right charger for your site, footfall and electrical capacity — and operates it for you so you don't have to manage the hardware.",
+    ],
+  },
+  "cost-of-ev-charging-station-india": {
+    title: "How much does an EV charging station cost in India",
+    description:
+      "EV charging station cost in India — capex drivers from AC wallboxes to 360 kW DC fast chargers and the economics behind them.",
+    read: "7 min read",
+    body: [
+      "EV charging station cost in India varies widely by charger type, site readiness, civil works, transformer requirements and software stack.",
+      "AC wallboxes start from around ₹1.5 lakh and have lower setup costs. DC fast chargers start from around ₹10 lakh and scale up to 360 kW for the busiest sites — but support far higher throughput and revenue.",
+      "A practical financial model should include installation, energy costs, operations, uptime guarantees and demand-growth assumptions. With EZIT, operations, maintenance, security and monitoring are bundled in.",
+      "Use an ROI calculator to test how investment, utilisation and tariffs affect your payback — typically 2–3 years for a well-located DC site.",
     ],
   },
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = CONTENT[slug];
+  if (!post) return { title: "Article not found | EZIT" };
+  return {
+    title: `${post.title} | EZIT`,
+    description: post.description,
+    alternates: { canonical: `/blog/${slug}` },
+  };
+}
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -51,8 +75,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    author: { "@type": "Organization", name: "EZIT" },
+    publisher: { "@type": "Organization", name: "EZIT" },
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <PageHero
         eyebrow="Article"
         title={post.title}

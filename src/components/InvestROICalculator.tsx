@@ -77,9 +77,9 @@ function StatRow({ label, value, emphasize }: StatRowProps) {
 export default function InvestROICalculator() {
   const [initialInvestment, setInitialInvestment] = useState(15_00_000);
   const [chargingRatePerKwh, setChargingRatePerKwh] = useState(18);
-  const [dailyUtilizationKwh, setDailyUtilizationKwh] = useState(200);
+  const [dailyUtilizationKwh, setDailyUtilizationKwh] = useState(240);
   const [electricityCostPerKwh, setElectricityCostPerKwh] = useState(8);
-  const [overheadCostPerKwh, setOverheadCostPerKwh] = useState(3);
+  const [overheadCostPerKwh, setOverheadCostPerKwh] = useState(2);
 
   const results = useMemo(() => {
     // One calendar year of energy; monthly figures are exactly 1/12 of annual (no 30×12 vs 365 drift).

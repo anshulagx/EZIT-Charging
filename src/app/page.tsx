@@ -1,10 +1,15 @@
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import TrustSection from "@/components/TrustSection";
+import StatsBand from "@/components/StatsBand";
+import TrustedProperties from "@/components/TrustedProperties";
+import FAQ from "@/components/FAQ";
 import Image from "next/image";
 import Link from "next/link";
 import PageCTA from "@/components/subpage/PageCTA";
 import PageSection from "@/components/subpage/PageSection";
 import { IconRowCard, StepCard, SubpageCard } from "@/components/subpage/SubpageCard";
+import { CONTACT, SPECS } from "@/lib/content";
 import {
   IconBanknotes,
   IconBolt,
@@ -16,11 +21,21 @@ import {
   IconExclamationTriangle,
   IconMapPin,
   IconMobileApps,
+  IconPhone,
   IconRoute,
   IconShieldCheck,
+  IconSparkles,
   IconTrendingUp,
+  IconUsers,
   IconWrench,
 } from "@/components/icons";
+
+export const metadata: Metadata = {
+  title: "EV Charging Station Partnership & Franchise in India | EZIT",
+  description:
+    "Turn your land or investment into EV charging income. EZIT builds, owns & operates fast, app-free DC charging stations across India. 95% uptime, AI security, 24/7 support.",
+  alternates: { canonical: "/" },
+};
 
 const PROBLEMS = [
   {
@@ -61,33 +76,48 @@ const SOLUTIONS = [
     text: "Built for consistent performance with real-time monitoring and proactive maintenance to ensure chargers are always working.",
     icon: <IconShieldCheck className="w-5 h-5" />,
   },
+  {
+    title: "AI-ENABLED 360° SECURITY",
+    text: "Cameras, two-way talk, siren, and 24/7 monitoring at no extra cost — your site and drivers stay protected.",
+    icon: <IconShieldCheck className="w-5 h-5" />,
+  },
+  {
+    title: "95% UPTIME GUARANTEE",
+    text: "Proactive, monitoring-led operations keep chargers live when drivers need them, backed by a dedicated 1:1 account manager.",
+    icon: <IconTrendingUp className="w-5 h-5" />,
+  },
+  {
+    title: "BACKED BY BLACK COBRA GROUP",
+    text: "33 years of infrastructure heritage (Est. 1992) behind every site — you partner with a group built to last.",
+    icon: <IconUsers className="w-5 h-5" />,
+  },
 ] as const;
 
 const CHARGER_OFFERINGS = [
   {
     segment: "Residential",
     title: "AC Charger",
-    power: "7.4kW – 22kW",
+    power: SPECS.ac.power,
     imageSrc: "/images/chargers/ac-charger.png",
-    imageAlt: "EZIT residential AC wallbox charger",
+    imageAlt: "EZIT 22 kW Type-2 AC EV charger for homes and workplaces",
     specs: [
-      { label: "Connector", value: "TYPE-2" },
-      { label: "Charge time", value: "5–10 hours" },
-      { label: "Payment", value: "RFID, Web, App" },
-      { label: "Safety", value: "IP55, Surge Protection" },
+      { label: "Connector", value: SPECS.ac.connector },
+      { label: "Charge time", value: SPECS.ac.chargeTime },
+      { label: "Payment", value: SPECS.ac.payment },
+      { label: "Safety", value: SPECS.ac.safety },
     ],
   },
   {
     segment: "Commercial",
     title: "DC Fast Charger",
-    power: "30kW – 360kW",
+    power: SPECS.dc.power,
     imageSrc: "/images/chargers/dc-charger.png",
-    imageAlt: "EZIT commercial DC fast charger",
+    imageAlt: "EZIT 360 kW CCS-2 DC fast EV charger for commercial sites",
     specs: [
-      { label: "Connector", value: "CCS-2" },
-      { label: "Charge time", value: "5–60 minutes" },
-      { label: "Payment", value: "UPI, RFID, Web, App" },
-      { label: "Safety", value: "IP55, Surge Protection" },
+      { label: "Connector", value: SPECS.dc.connector },
+      { label: "Charge time", value: SPECS.dc.chargeTime },
+      { label: "Payment", value: SPECS.dc.payment },
+      { label: "Safety", value: SPECS.dc.safety },
     ],
   },
 ] as const;
@@ -97,24 +127,24 @@ const ROLES = [
     eyebrow: "LAND",
     title: "Landowners",
     text: "Turn your unused parking space into a steady source of income while EZIT handles installation, operations, and maintenance.",
-    href: "/invest",
-    cta: "Own a Franchise",
+    href: "/host-a-charger",
+    cta: "List Your Land",
     icon: IconMapPin,
   },
   {
     eyebrow: "CAPITAL",
     title: "Investors",
-    text: "Invest in EV charging infrastructure and earn long-term returns with EZIT managing setup and daily operations.",
+    text: "Own a charger on India's fast-growing network and earn long-term returns with EZIT managing setup and daily operations.",
     href: "/invest",
-    cta: "Explore investment",
+    cta: "Own a Franchise",
     icon: IconTrendingUp,
   },
   {
     eyebrow: "DRIVERS",
     title: "EV drivers",
-    text: "Access fast, reliable charging wherever you go with simple, hassle-free payments.",
+    text: "Access fast, reliable charging wherever you go with simple, app-free UPI payments.",
     href: "/charging-locations",
-    cta: "Find charging",
+    cta: "Find Charging",
     icon: IconCarFront,
   },
 ] as const;
@@ -125,12 +155,12 @@ const BENEFITS = [
     text: "Earn consistent revenue from parking spaces that would otherwise remain unused.",
   },
   {
-    title: "Higher footfall at your location",
-    text: "Attract more visitors and increase time spent at your property.",
+    title: "On-time payments, every month",
+    text: "Transparent, on-time monthly payments you can count on — no chasing, no surprises.",
   },
   {
-    title: "Premium EV customers and repeat visits",
-    text: "Bring in high-value customers who are more likely to return regularly.",
+    title: "Higher footfall at your location",
+    text: "Attract more visitors and increase time spent at your property.",
   },
   {
     title: "Future-ready, sustainability-focused property",
@@ -140,28 +170,54 @@ const BENEFITS = [
 
 const STEPS = [
   {
-    title: "Submit property",
-    description:
-      "Share your location, power availability, and access details through a quick and simple form.",
+    title: "You reach out",
+    description: "Send your location and photos over WhatsApp or email — that's all it takes to start.",
     icon: <IconClipboard className="w-4 h-4" />,
   },
   {
-    title: "Site evaluation",
-    description: "Our team reviews your location based on demand, visibility, and electrical readiness.",
+    title: "Quick discovery call",
+    description: "A short call to understand your site, power availability, and goals.",
+    icon: <IconUsers className="w-4 h-4" />,
+  },
+  {
+    title: "Free site survey",
+    description: "Our team visits and assesses your location — free, with no obligation.",
     icon: <IconClipboardCheck className="w-4 h-4" />,
   },
   {
-    title: "Charger installation",
-    description: "We take care of installation, setup, and testing to ensure everything is ready to go.",
-    icon: <IconWrench className="w-4 h-4" />,
-  },
-  {
-    title: "Earn revenue",
-    description:
-      "Start earning with a transparent and reliable revenue model, with full support from EZIT.",
+    title: "Tailored proposal",
+    description: "You receive a clear proposal with charger type, economics, and timeline.",
     icon: <IconBanknotes className="w-4 h-4" />,
   },
+  {
+    title: "Sign & install in 30–45 days",
+    description: "We install, commission, and run the charger — then you start earning.",
+    icon: <IconWrench className="w-4 h-4" />,
+  },
 ] as const;
+
+const FAQ_ITEMS = [
+  {
+    question: "How do I rent my land for an EV charging station?",
+    answer:
+      "Share your location and a few photos with EZIT over WhatsApp or email. We run a free, no-obligation site survey, send you a tailored proposal, and if you sign, we install and operate the charger at our cost — you earn a monthly revenue share.",
+  },
+  {
+    question: "How much does an EV charging franchise cost in India?",
+    answer:
+      "A typical DC fast-charging franchise starts from around ₹10–15 lakh including hardware and infrastructure. EZIT secures the location, installs, owns and operates everything end-to-end, with a typical payback of 2–3 years.",
+  },
+  {
+    question: "Is EV charging profitable in India?",
+    answer:
+      "Yes. With India targeting around 30% EV penetration by 2030 and charging now a de-licensed activity, well-located DC sites can deliver strong returns. EZIT focuses on high-dwell, high-traffic locations to maximise utilisation.",
+  },
+  {
+    question: "How long does installation take?",
+    answer:
+      "After your free site survey and a signed agreement, EZIT typically installs and commissions a charger within 30–45 days, with no upfront commitment until you receive your tailored proposal.",
+  },
+];
 
 export default function Home() {
   return (
@@ -172,7 +228,7 @@ export default function Home() {
         tone="muted"
         header={{
           eyebrow: "THE PROBLEM",
-          title: "EV charging today is still broken",
+          title: "Why EV charging in India still frustrates drivers",
           description:
             "EV drivers still struggle with unreliable chargers, slow speeds, and complicated payments. The experience is inconsistent and that's holding EV adoption back.",
         }}
@@ -198,6 +254,9 @@ export default function Home() {
             );
           })}
         </div>
+        <p className="mt-8 text-center text-base font-medium text-white/80">
+          EZIT was built to fix all four.
+        </p>
       </PageSection>
 
       <PageSection
@@ -206,7 +265,7 @@ export default function Home() {
           eyebrow: "OUR SOLUTION",
           title: "The EZIT solution",
           description:
-            "Built for real-world usage, not just specifications. EZIT combines fast hardware, simple payments, and reliable operations to deliver a seamless charging experience.",
+            "Built for real-world usage, not just specifications. EZIT combines fast hardware, simple payments, AI security, and reliable operations to deliver a seamless charging experience.",
         }}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
@@ -265,6 +324,10 @@ export default function Home() {
           ))}
         </div>
       </PageSection>
+
+      <StatsBand tone="muted" />
+
+      <TrustedProperties tone="base" />
 
       <PageSection
         tone="muted"
@@ -337,7 +400,7 @@ export default function Home() {
           eyebrow: "PROCESS",
           title: "How EZIT works",
           description:
-            "From your first details to earning revenue, we handle everything through a simple and structured process.",
+            "From your first message to earning revenue, we handle everything through a simple and structured process. No upfront commitment until you receive your tailored proposal.",
         }}
       >
         <div className="max-w-6xl mx-auto relative">
@@ -345,7 +408,7 @@ export default function Home() {
             className="hidden lg:block absolute top-[2.25rem] left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none"
             aria-hidden
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-6">
             {STEPS.map((step, index) => (
               <StepCard
                 key={step.title}
@@ -361,15 +424,33 @@ export default function Home() {
 
       <TrustSection />
 
+      <FAQ items={FAQ_ITEMS} tone="base" description="Quick answers for landowners, franchise investors, and drivers." />
+
       <PageCTA
-        title={
-          <>
-            Start earning from EV charging today
-          </>
+        title={<>Start earning from EV charging today</>}
+        description="List your land or own a franchise. We'll qualify fit and outline the next steps."
+        primary={{ href: "/host-a-charger", label: "List Your Land" }}
+        secondary={{ href: "/invest", label: "Own a Franchise" }}
+        extra={
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+            <a
+              href={`tel:${CONTACT.phoneHref}`}
+              className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+            >
+              <IconPhone className="w-4 h-4 text-ezit-green/80 shrink-0" aria-hidden />
+              {CONTACT.phoneDisplay}
+            </a>
+            <a
+              href={CONTACT.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+            >
+              <IconSparkles className="w-4 h-4 text-ezit-green/80 shrink-0" aria-hidden />
+              Chat on WhatsApp
+            </a>
+          </div>
         }
-        description="List a site or talk to our team. We will qualify fit and outline the next steps."
-        primary={{ href: "/invest", label: "Own a Franchise" }}
-        secondary={{ href: "/contact", label: "Talk to our team" }}
       />
     </>
   );

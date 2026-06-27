@@ -5,6 +5,7 @@ import SuccessModal from "./SuccessModal";
 
 const BUDGET_OPTIONS = [
   { value: "", label: "Select budget range" },
+  { value: "₹1–10L", label: "₹1–10L" },
   { value: "₹10–25L", label: "₹10–25L" },
   { value: "₹25–50L", label: "₹25–50L" },
   { value: "₹50L+", label: "₹50L+" },
@@ -18,11 +19,10 @@ const TIMELINE_OPTIONS = [
 ];
 
 const MODEL_OPTIONS = [
-  { value: "", label: "Select preferred model" },
-  { value: "Own & Operate", label: "Own & Operate" },
-  { value: "Revenue Share", label: "Revenue Share" },
-  { value: "Franchise Style", label: "Franchise Style" },
-  { value: "Open to Guidance", label: "Open to Guidance" },
+  { value: "", label: "Select an option" },
+  { value: "Own a franchise", label: "Own a franchise" },
+  { value: "I also have land to list", label: "I also have land to list" },
+  { value: "Open to guidance", label: "Open to guidance" },
 ];
 
 export default function InvestorForm() {
@@ -71,14 +71,14 @@ export default function InvestorForm() {
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
             </svg>
-            Investors
+            Own a Franchise
           </div>
           <h2 className="text-2xl md:text-3xl font-bold text-white">
-            Invest in EV Charging
+            Own a Franchise
           </h2>
           <p className="text-white/50 mt-2 text-sm sm:text-base">
-            Share your investment interest and we&apos;ll connect you with
-            high-potential opportunities across India.
+            You invest, EZIT secures the location and runs everything end-to-end,
+            you earn. Share your details and our team will connect with you.
           </p>
         </div>
 
@@ -137,7 +137,7 @@ export default function InvestorForm() {
               </select>
             </div>
             <div>
-              <label htmlFor="investor-model">Preferred Model *</label>
+              <label htmlFor="investor-model">What are you looking for? *</label>
               <select id="investor-model" name="preferredModel" required>
                 {MODEL_OPTIONS.map((o) => (
                   <option key={o.value} value={o.value}>{o.label}</option>

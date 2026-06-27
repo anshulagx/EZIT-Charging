@@ -1,27 +1,27 @@
 import PageSection from "@/components/subpage/PageSection";
 import { SubpageCard } from "@/components/subpage/SubpageCard";
-import { IconBanknotes, IconBolt, IconGlobe, IconShieldCheck } from "@/components/icons";
+import { IconBolt, IconBuilding, IconGlobe, IconUsers } from "@/components/icons";
 
-const features = [
+const pillars = [
   {
-    icon: IconBolt,
-    title: "DC fast charging",
-    desc: "60kW to 320+ kW chargers. Full charge in 20–40 minutes.",
+    icon: IconBuilding,
+    title: "Building Materials",
+    desc: "Black Cobra Ply, Mica & WPC, plus Alex aluminium panels — three decades of trusted infrastructure products.",
   },
   {
-    icon: IconBanknotes,
-    title: "Revenue share models",
-    desc: "Flexible earning models: fixed rent, revenue share, or custom arrangements.",
-  },
-  {
-    icon: IconShieldCheck,
-    title: "End-to-end support",
-    desc: "We handle installation, maintenance, compliance, and monitoring.",
+    icon: IconUsers,
+    title: "Education",
+    desc: "Quantum University, Roorkee — a top-60 ranked B-school shaping the next generation of talent.",
   },
   {
     icon: IconGlobe,
-    title: "PAN-India network",
-    desc: "Rapidly expanding across highways, urban centres, and commercial hubs.",
+    title: "Green Energy",
+    desc: "From fuel stations to EV charging — EZIT carries the group's energy legacy into clean mobility.",
+  },
+  {
+    icon: IconBolt,
+    title: "EV Charging",
+    desc: "30–360 kW DC fast charging, full charge in 20–40 minutes, with 95% uptime and 24/7 monitoring.",
   },
 ] as const;
 
@@ -33,11 +33,11 @@ export default function TrustSection() {
         eyebrow: "Heritage",
         title: "Built on trusted infrastructure expertise",
         description:
-          "EZIT is part of the Black Cobra Group (Est. 1992), combining decades of execution experience with a pan-India expansion vision for EV charging.",
+          "EZIT is the Green Energy arm of the Black Cobra Group (Est. 1992). You're partnering with a 33-year-old group with deep execution experience — not a startup that may disappear next year.",
       }}
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
-        {features.map((f) => {
+        {pillars.map((f) => {
           const FIcon = f.icon;
           return (
             <SubpageCard key={f.title} className="group/trust">

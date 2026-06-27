@@ -1,12 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/subpage/PageHero";
 import PageSection from "@/components/subpage/PageSection";
 import { SubpageCard } from "@/components/subpage/SubpageCard";
 
+export const metadata: Metadata = {
+  title: "EZIT EV Charging Network — Delhi NCR, Punjab, Haryana & Bengaluru",
+  description:
+    "Explore the EZIT EV charging network across the NH-44 Delhi–Ambala–Mohali corridor and Bengaluru. Reliable DC fast charging with app-free UPI payments.",
+  alternates: { canonical: "/locations" },
+};
+
 const SNAPSHOT = [
-  { label: "Live & ramping", value: "Corridor + metro nodes", hint: "Expansion-first rollout" },
-  { label: "Partner types", value: "Retail, highway, mixed-use", hint: "Land + investor led" },
-  { label: "Payments", value: "UPI-first flows", hint: "Lower friction for drivers" },
+  { label: "Live corridor", value: "NH-44 Delhi–Ambala–Mohali", hint: "Plus Bengaluru" },
+  { label: "Partner types", value: "Retail, highway, mixed-use", hint: "Land + franchise led" },
+  { label: "Payments", value: "App-free UPI flows", hint: "No app, no sign-up" },
 ] as const;
 
 export default function LocationsPage() {
@@ -59,8 +67,8 @@ export default function LocationsPage() {
             <span className="text-xs text-white/35">India-wide view</span>
           </div>
           <iframe
-            title="EZIT locations map"
-            src="https://maps.google.com/maps?q=India&t=&z=5&ie=UTF8&iwloc=&output=embed"
+            title="EZIT locations map across Punjab, Haryana and Delhi NCR"
+            src="https://maps.google.com/maps?q=Zirakpur%20Punjab&t=&z=9&ie=UTF8&iwloc=&output=embed"
             className="w-full h-[min(500px,60vh)] min-h-[320px]"
             loading="lazy"
           />

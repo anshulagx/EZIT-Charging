@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import LandownerForm from "@/components/LandownerForm";
+import FAQ from "@/components/FAQ";
 import PageHero from "@/components/subpage/PageHero";
 import PageSection from "@/components/subpage/PageSection";
 import { StepCard, SubpageCard } from "@/components/subpage/SubpageCard";
@@ -8,34 +10,40 @@ import {
   IconBanknotes,
   IconBolt,
   IconBuilding,
-  IconCarFront,
   IconCheck,
   IconClipboard,
   IconClipboardCheck,
   IconEye,
-  IconGlobe,
   IconHome,
   IconMapPin,
   IconRoute,
-  IconTrendingUp,
+  IconShieldCheck,
+  IconSparkles,
   IconUsers,
   IconWrench,
 } from "@/components/icons";
 
+export const metadata: Metadata = {
+  title: "List Your Land for EV Charging — Earn Monthly Income | EZIT",
+  description:
+    "Own land, a mall, hotel or petrol pump? EZIT installs and operates EV chargers at zero cost to you and pays revenue every month. Free site survey within days.",
+  alternates: { canonical: "/host-a-charger" },
+};
+
 const IDEAL = [
   {
     title: "Hospitality & retail",
-    items: ["Hotels", "Restaurants", "Shopping malls"],
+    items: ["Hotels", "Highway restaurants", "Shopping malls", "Commercial buildings"],
     icon: IconBuilding,
   },
   {
     title: "High-traffic corridors",
-    items: ["Highway properties", "Petrol pumps", "Transit adjacencies"],
+    items: ["Highway properties", "Petrol pumps", "Hospitals", "Institutions & universities"],
     icon: IconRoute,
   },
   {
     title: "Residential & mixed use",
-    items: ["Residential societies", "Commercial complexes", "Office parks"],
+    items: ["Residential societies", "Corporate parks", "Developers with vacant parking", "Office complexes"],
     icon: IconHome,
   },
 ] as const;
@@ -43,7 +51,7 @@ const IDEAL = [
 const REQUIREMENTS = [
   {
     title: "Space & access",
-    text: "Minimum two parking spaces with practical ingress/egress for EVs.",
+    text: "1–2 parking bays (AC needs 1, DC needs 2) with practical ingress/egress for EVs.",
     icon: IconMapPin,
   },
   {
@@ -65,41 +73,69 @@ const REQUIREMENTS = [
 
 const BENEFITS = [
   {
-    text: "New recurring income from underused parking",
+    text: "Monthly revenue share, paid on time",
     icon: IconBanknotes,
   },
   {
-    text: "Stronger asset positioning as EV adoption grows",
-    icon: IconTrendingUp,
+    text: "100% of charger + install cost borne by EZIT",
+    icon: IconCheck,
   },
   {
-    text: "Higher footfall and dwell from charging customers",
-    icon: IconCarFront,
+    text: "AI 360° security + 24/7 monitoring included",
+    icon: IconShieldCheck,
   },
   {
-    text: "Sustainability story your guests and tenants notice",
-    icon: IconGlobe,
+    text: "95% uptime guarantee",
+    icon: IconBolt,
+  },
+  {
+    text: "Aesthetic premium station that lifts your property's image",
+    icon: IconSparkles,
   },
 ] as const;
 
 const STEPS = [
-  { title: "Submit location details", icon: <IconClipboard className="w-4 h-4" /> },
-  { title: "EZIT evaluates the site", icon: <IconClipboardCheck className="w-4 h-4" /> },
-  { title: "Charger installation & commissioning", icon: <IconWrench className="w-4 h-4" /> },
-  { title: "Revenue sharing begins", icon: <IconBanknotes className="w-4 h-4" /> },
+  { title: "You reach out", description: "Send location & photos over WhatsApp or email.", icon: <IconClipboard className="w-4 h-4" /> },
+  { title: "Quick discovery call", description: "A short call to understand your site and goals.", icon: <IconUsers className="w-4 h-4" /> },
+  { title: "Free site survey", description: "Within days — free, with no obligation.", icon: <IconClipboardCheck className="w-4 h-4" /> },
+  { title: "Tailored proposal", description: "Charger type, economics, and timeline, no upfront commitment.", icon: <IconBanknotes className="w-4 h-4" /> },
+  { title: "Sign & install in 30–45 days", description: "We install and run it; you start earning.", icon: <IconWrench className="w-4 h-4" /> },
 ] as const;
+
+const FAQ_ITEMS = [
+  {
+    question: "How do I rent my land for an EV charging station?",
+    answer:
+      "Send EZIT your location and photos over WhatsApp or email. We run a free, no-obligation site survey within days, send a tailored proposal, and on signing we install and operate the charger at our cost — you earn a monthly revenue share.",
+  },
+  {
+    question: "How much can I earn renting land for EV charging?",
+    answer:
+      "Earnings depend on location, footfall and charger type. EZIT shares a transparent monthly revenue share, paid on time, with 100% of charger and installation cost borne by us.",
+  },
+  {
+    question: "Do I have to pay anything to install a charger?",
+    answer:
+      "No. EZIT bears 100% of the charger and installation cost, plus AI 360° security, 24/7 monitoring and a 95% uptime guarantee. There is no upfront commitment until you receive your tailored proposal.",
+  },
+  {
+    question: "How long does installation take?",
+    answer:
+      "After a free site survey and signed agreement, EZIT typically installs and commissions your charger within 30–45 days.",
+  },
+];
 
 export default function HostAChargerPage() {
   return (
     <div>
       <PageHero
-        eyebrow="For landowners"
+        eyebrow="List Your Land"
         title={
           <>
             Turn parking into <span className="text-white/90">monthly EV income</span>
           </>
         }
-        description="Partner with EZIT to deploy chargers at your location. We handle evaluation, installation, and operations so you can focus on your business."
+        description="List your land — we install and run the charger at our cost, you earn every month. Zero investment, zero operations. 95% uptime, AI 360° security, and on-time monthly payments."
       >
         <Link
           href="#landowner"
@@ -179,7 +215,7 @@ export default function HostAChargerPage() {
           description: "Charging is infrastructure, but the business case should still be simple.",
         }}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {BENEFITS.map((benefit) => {
             const BenIcon = benefit.icon;
             return (
@@ -201,17 +237,19 @@ export default function HostAChargerPage() {
         header={{
           eyebrow: "Timeline",
           title: "How hosting works",
-          description: "A clear sequence from first details to first session.",
+          description: "A clear sequence from first message to first session — free site survey within days, install in 30–45 days.",
         }}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-6">
           {STEPS.map((step, index) => (
-            <StepCard key={step.title} step={index + 1} title={step.title} icon={step.icon} />
+            <StepCard key={step.title} step={index + 1} title={step.title} description={step.description} icon={step.icon} />
           ))}
         </div>
       </PageSection>
 
       <LandownerForm />
+
+      <FAQ items={FAQ_ITEMS} tone="muted" description="Everything landowners ask before listing with EZIT." />
     </div>
   );
 }

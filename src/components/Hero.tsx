@@ -9,28 +9,41 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div className="max-w-xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold text-white leading-[1.1] tracking-tight">
-              EV Charging Made <span className="text-ezit-green">EZ</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight">
+              Turn Your Land or Investment Into{" "}
+              <span className="text-ezit-green">EV Charging Income</span>
             </h1>
 
             <p className="mt-6 text-base sm:text-lg text-white/65 leading-relaxed max-w-lg">
-              Fast, app-free, reliable EV charging infrastructure built for India&apos;s future.
+              EZIT builds, owns and operates premium EV charging stations across India.
+              List your land or own a franchise — we handle everything. App-free UPI
+              charging, 95% uptime, backed by 33 years of Black Cobra Group.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/contact"
+                href="/host-a-charger"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-black font-medium text-sm hover:bg-white/90 transition-colors duration-300"
               >
-                Partner With Us
+                List Your Land
               </Link>
               <Link
-                href="/host-a-charger"
+                href="/invest"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-ezit-green text-white font-medium text-sm hover:bg-ezit-green-hover transition-colors duration-300"
+              >
+                Own a Franchise
+              </Link>
+              <Link
+                href="/charging-locations"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-white/35 text-white font-medium text-sm hover:bg-white/5 transition-colors duration-300"
               >
-                Check Feasibility
+                Find Charging
               </Link>
             </div>
+
+            <p className="mt-5 text-sm text-white/45">
+              Live at Pooja Wholesale Complex, CP67 Mall, Pooja Plazzio &amp; more.
+            </p>
           </div>
 
           <div className="relative flex justify-center lg:justify-end">

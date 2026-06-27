@@ -7,8 +7,7 @@ import { useState } from "react";
 const LOGO_URL = "/images/ezit-logo.jpg";
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
-  { href: "/host-a-charger", label: "Host a Charger" },
-  { href: "/invest", label: "Invest" },
+  { href: "/host-a-charger", label: "List Your Land" },
   { href: "/charging-locations", label: "Find Charging" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

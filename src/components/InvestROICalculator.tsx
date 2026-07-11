@@ -117,13 +117,13 @@ export default function InvestROICalculator() {
 
   const paybackDisplay =
     results.paybackYears === null
-      ? "—"
+      ? "-"
       : results.paybackYears > 50
         ? "50+ yrs"
         : `${results.paybackYears.toFixed(1)} yrs`;
 
   const annualRoiDisplay =
-    results.simpleAnnualRoiPct === null ? "—" : `${results.simpleAnnualRoiPct.toFixed(1)}%`;
+    results.simpleAnnualRoiPct === null ? "-" : `${results.simpleAnnualRoiPct.toFixed(1)}%`;
 
   return (
     <SubpageCard hover={false} className="p-6 sm:p-8 lg:p-10">

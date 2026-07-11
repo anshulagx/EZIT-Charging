@@ -30,7 +30,7 @@ const EARNING_MODEL_OPTIONS = [
   { value: "", label: "Select an option" },
   { value: "List my land (EZIT installs & operates)", label: "I want to list my land (EZIT installs & operates)" },
   { value: "Also want to invest and own a franchise", label: "I also want to invest and own a franchise" },
-  { value: "Not sure — recommend the best fit", label: "Not sure — recommend the best fit" },
+  { value: "Not sure, recommend the best fit", label: "Not sure, recommend the best fit" },
 ];
 
 export default function LandownerForm() {
@@ -83,7 +83,7 @@ export default function LandownerForm() {
             Earn From Your Land
           </h2>
           <p className="text-white/50 mt-2 text-sm sm:text-base">
-            List your land for EV charging — EZIT installs and operates the charger
+            List your land for EV charging. EZIT installs and operates the charger
             at our cost, you earn every month. Our team will evaluate your site and
             get in touch within 48 hours.
           </p>

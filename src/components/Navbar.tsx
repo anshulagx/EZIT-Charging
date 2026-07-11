@@ -4,11 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { PATHS } from "@/lib/content";
+
 const LOGO_URL = "/images/ezit-logo.jpg";
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
   { href: "/host-a-charger", label: "List Your Land" },
-  { href: "/charging-locations", label: "Find Charging" },
+  { href: PATHS.requestCharger.href, label: PATHS.requestCharger.label },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -20,15 +22,18 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--background-header)] backdrop-blur-xl border-b border-white/5">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 shrink-0">
             <Image
               src={LOGO_URL}
               alt="EZIT Logo"
               width={180}
               height={60}
-              className="h-11 md:h-12 w-auto object-contain"
+              className="h-10 md:h-11 w-auto object-contain mix-blend-lighten"
               priority
             />
+            <span className="hidden sm:block text-sm text-white leading-tight border-l border-white/20 pl-3">
+              EV charging made EZ
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center gap-6">

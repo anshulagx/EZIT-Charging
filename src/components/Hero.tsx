@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+import { PATHS } from "@/lib/content";
 
-const CHARGER_IMG = "/images/charger-mockup.png";
+const CHARGER_IMG = "/images/ezit-image.jpg";
 
 export default function Hero() {
   return (
@@ -16,7 +17,7 @@ export default function Hero() {
 
             <p className="mt-6 text-base sm:text-lg text-white/65 leading-relaxed max-w-lg">
               EZIT builds, owns and operates premium EV charging stations across India.
-              List your land or own a franchise — we handle everything. App-free UPI
+              List your land or own a franchise. We handle everything. App-free UPI
               charging, 95% uptime, backed by 33 years of Black Cobra Group.
             </p>
 
@@ -34,16 +35,12 @@ export default function Hero() {
                 Own a Franchise
               </Link>
               <Link
-                href="/charging-locations"
+                href={PATHS.requestCharger.href}
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-white/35 text-white font-medium text-sm hover:bg-white/5 transition-colors duration-300"
               >
-                Find Charging
+                {PATHS.requestCharger.label}
               </Link>
             </div>
-
-            <p className="mt-5 text-sm text-white/45">
-              Live at Pooja Wholesale Complex, CP67 Mall, Pooja Plazzio &amp; more.
-            </p>
           </div>
 
           <div className="relative flex justify-center lg:justify-end">
@@ -58,8 +55,8 @@ export default function Hero() {
                 <Image
                   src={CHARGER_IMG}
                   alt="EZIT Premium Charging Station"
-                  width={600}
-                  height={950}
+                  width={1148}
+                  height={1370}
                   className="relative w-full h-auto drop-shadow-2xl"
                   priority
                 />

@@ -5,7 +5,7 @@ import PageSection from "@/components/subpage/PageSection";
 import { SubpageCard } from "@/components/subpage/SubpageCard";
 
 export const metadata: Metadata = {
-  title: "EV Charging Insights — Franchise, Land & Hardware Guides | EZIT",
+  title: "EV Charging Insights | Franchise, Land & Hardware Guides | EZIT",
   description:
     "Practical guides on starting an EV charging franchise in India, earning from your land, and choosing AC vs DC chargers for your property.",
   alternates: { canonical: "/blog" },
@@ -15,7 +15,7 @@ const posts = [
   {
     slug: "start-ev-charging-franchise-india",
     title: "How to start an EV charging station franchise in India",
-    excerpt: "Costs, licensing, site selection and ROI — a step-by-step guide to owning a charging franchise.",
+    excerpt: "Costs, licensing, site selection and ROI: a step-by-step guide to owning a charging franchise.",
     read: "7 min read",
   },
   {

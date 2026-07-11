@@ -4,6 +4,7 @@ import PageCTA from "@/components/subpage/PageCTA";
 import PageHero from "@/components/subpage/PageHero";
 import PageSection from "@/components/subpage/PageSection";
 import { StepCard, SubpageCard } from "@/components/subpage/SubpageCard";
+import { PATHS as SITE_PATHS } from "@/lib/content";
 import {
   IconBanknotes,
   IconClipboard,
@@ -15,7 +16,7 @@ import {
 } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "How EZIT EV Charging Works — List Land or Own a Franchise",
+  title: "How EZIT EV Charging Works | List Land or Own a Franchise",
   description:
     "Two simple paths: list your land and let EZIT install & operate, or own a franchise on our network. See the shared 5-step process from first message to revenue.",
   alternates: { canonical: "/how-it-works" },
@@ -25,7 +26,7 @@ const PATHS = [
   {
     eyebrow: "Have a location?",
     title: "List Your Land",
-    text: "You have a site — EZIT installs and runs the charger at our cost, and you earn a monthly revenue share.",
+    text: "You have a site. EZIT installs and runs the charger at our cost, and you earn a monthly revenue share.",
     href: "/host-a-charger",
     cta: "List Your Land",
     icon: IconMapPin,
@@ -33,7 +34,7 @@ const PATHS = [
   {
     eyebrow: "Want to invest?",
     title: "Own a Franchise",
-    text: "You invest in the charger — EZIT secures the location and operates everything end-to-end, and you earn.",
+    text: "You invest in the charger. EZIT secures the location and operates everything end-to-end, and you earn.",
     href: "/invest",
     cta: "Own a Franchise",
     icon: IconTrendingUp,
@@ -43,7 +44,7 @@ const PATHS = [
 const STEPS = [
   {
     title: "You reach out",
-    description: "Send your location and photos over WhatsApp or email — that's all it takes to start.",
+    description: "Send your location and photos over WhatsApp or email. That's all it takes to start.",
     icon: <IconClipboard className="w-4 h-4" />,
   },
   {
@@ -53,7 +54,7 @@ const STEPS = [
   },
   {
     title: "Free site survey",
-    description: "Our team visits and assesses your location — free, with no obligation.",
+    description: "Our team visits and assesses your location, free, with no obligation.",
     icon: <IconClipboardCheck className="w-4 h-4" />,
   },
   {
@@ -63,7 +64,7 @@ const STEPS = [
   },
   {
     title: "Sign & install in 30–45 days",
-    description: "We install, commission, and run the charger — then you start earning.",
+    description: "We install, commission, and run the charger, then you start earning.",
     icon: <IconWrench className="w-4 h-4" />,
   },
 ] as const;
@@ -74,7 +75,7 @@ export default function HowItWorksPage() {
       <PageHero
         eyebrow="Process"
         title={<>How EZIT works</>}
-        description="A simple ecosystem connecting landowners, franchise investors, EZIT operations, and EV drivers — from first conversation to recurring income."
+        description="A simple ecosystem connecting landowners, franchise investors, EZIT operations, and EV drivers, from first conversation to recurring income."
       >
         <Link
           href="/host-a-charger"
@@ -95,7 +96,7 @@ export default function HowItWorksPage() {
         header={{
           eyebrow: "Pick your path",
           title: "Two simple ways to partner with EZIT",
-          description: "Whichever you choose, EZIT handles the heavy lifting — installation, operations, security and uptime.",
+          description: "Whichever you choose, EZIT handles the heavy lifting: installation, operations, security and uptime.",
         }}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 max-w-4xl mx-auto">
@@ -131,7 +132,7 @@ export default function HowItWorksPage() {
         header={{
           eyebrow: "Five steps",
           title: "From first message to revenue",
-          description: "Both paths follow the same straightforward process — free site survey, install in 30–45 days, no upfront commitment until you receive your tailored proposal.",
+          description: "Both paths follow the same straightforward process: free site survey, install in 30–45 days, no upfront commitment until you receive your tailored proposal.",
         }}
       >
         <div className="max-w-6xl mx-auto relative">
@@ -157,7 +158,7 @@ export default function HowItWorksPage() {
         title="Ready to plug in?"
         description="Tell us about your property or ask questions. We will guide the next step."
         primary={{ href: "/contact", label: "Talk to our team" }}
-        secondary={{ href: "/charging-locations", label: "Find Charging" }}
+        secondary={{ href: SITE_PATHS.requestCharger.href, label: SITE_PATHS.requestCharger.label }}
       />
     </div>
   );

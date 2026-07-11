@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import PageCTA from "@/components/subpage/PageCTA";
 import PageHero from "@/components/subpage/PageHero";
 import PageSection from "@/components/subpage/PageSection";
-import StatsBand from "@/components/StatsBand";
-import TrustedProperties from "@/components/TrustedProperties";
 import { SubpageCard } from "@/components/subpage/SubpageCard";
 import { IconBuilding, IconGlobe, IconUsers } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "About EZIT — Green Energy Arm of Black Cobra Group (Est. 1992)",
+  title: "About EZIT | Green Energy Arm of Black Cobra Group (Est. 1992)",
   description:
     "EZIT is the EV charging arm of the 33-year-old Black Cobra Group. We build, own and operate India's most reliable charging network across Delhi NCR, Punjab & Haryana.",
   alternates: { canonical: "/about" },
@@ -18,17 +16,17 @@ const PILLARS = [
   {
     icon: IconBuilding,
     title: "Building Materials",
-    desc: "Black Cobra Ply, Mica & WPC, plus Alex aluminium panels — trusted infrastructure products built over three decades.",
+    desc: "Black Cobra Ply, Mica & WPC, plus Alex aluminium panels. Trusted infrastructure products built over three decades.",
   },
   {
     icon: IconUsers,
     title: "Education",
-    desc: "Quantum University, Roorkee — a top-60 ranked B-school developing future-ready talent.",
+    desc: "Quantum University, Roorkee, a top-60 ranked B-school developing future-ready talent.",
   },
   {
     icon: IconGlobe,
     title: "Green Energy",
-    desc: "From fuel stations to EV charging — EZIT carries the group's energy legacy into clean mobility.",
+    desc: "From fuel stations to EV charging, EZIT carries the group's energy legacy into clean mobility.",
   },
 ] as const;
 
@@ -43,7 +41,7 @@ export default function AboutPage() {
             <span className="text-ezit-green">India&apos;s EV future</span>
           </>
         }
-        description="EZIT is the green energy arm of the 33-year-old Black Cobra Group. You're partnering with a group with deep execution experience — not a startup that may disappear next year."
+        description="EZIT is the green energy arm of the 33-year-old Black Cobra Group. You're partnering with a group with deep execution experience, not a startup that may disappear next year."
       />
 
       <PageSection
@@ -71,8 +69,6 @@ export default function AboutPage() {
         </div>
       </PageSection>
 
-      <StatsBand tone="base" />
-
       <PageSection
         tone="muted"
         header={{
@@ -81,12 +77,12 @@ export default function AboutPage() {
           description: "Clear priorities that guide how we deploy, operate, and scale charging assets.",
         }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 max-w-4xl">
           <SubpageCard>
             <div className="text-xs font-semibold uppercase tracking-wider text-ezit-green mb-2">Mission</div>
             <h3 className="text-xl font-semibold text-white">Reliable access</h3>
             <p className="mt-3 text-sm text-white/60 leading-relaxed">
-              Build dependable EV charging across highways, cities, and commercial hubs—where demand is real and uptime
+              Build dependable EV charging across highways, cities, and commercial hubs, where demand is real and uptime
               matters.
             </p>
           </SubpageCard>
@@ -94,22 +90,12 @@ export default function AboutPage() {
             <div className="text-xs font-semibold uppercase tracking-wider text-ezit-green mb-2">Vision</div>
             <h3 className="text-xl font-semibold text-white">Scalable green mobility</h3>
             <p className="mt-3 text-sm text-white/60 leading-relaxed">
-              Power India&apos;s transition to electric mobility with infrastructure that scales with adoption—not
+              Power India&apos;s transition to electric mobility with infrastructure that scales with adoption, not
               one-off installs.
-            </p>
-          </SubpageCard>
-          <SubpageCard>
-            <div className="text-xs font-semibold uppercase tracking-wider text-ezit-green mb-2">Where we operate</div>
-            <h3 className="text-xl font-semibold text-white">Delhi NCR to Bengaluru</h3>
-            <p className="mt-3 text-sm text-white/60 leading-relaxed">
-              Live along the NH-44 Delhi–Ambala–Ludhiana–Amritsar corridor — Zirakpur, Mohali, Ambala, Dera Bassi — and
-              in Bengaluru.
             </p>
           </SubpageCard>
         </div>
       </PageSection>
-
-      <TrustedProperties tone="base" />
 
       <PageCTA
         title={

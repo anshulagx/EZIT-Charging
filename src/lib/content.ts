@@ -7,7 +7,7 @@ export const CONTACT = {
   whatsappHref: "https://wa.me/917076989898",
   emailGeneral: "contact@ezit.co.in",
   emailSales: "sales@ezit.co.in",
-  officeArea: "Kalkaji, South Delhi",
+  officeArea: "New Delhi",
   serviceAreas: "Delhi NCR, Punjab, Haryana & Bengaluru",
 } as const;
 
@@ -36,8 +36,6 @@ export const STATS = [
   { value: "33+", label: "Years of group heritage" },
   { value: "95%", label: "Uptime guarantee" },
   { value: "24/7", label: "AI security monitoring" },
-  { value: "1:1", label: "Dedicated account manager" },
-  { value: "7+", label: "Live & upcoming sites" },
 ] as const;
 
 export type LiveSite = {
@@ -59,9 +57,9 @@ export const LIVE_SITES: LiveSite[] = [
   { name: "Bricklane Apartments", city: "Bengaluru", type: "AC", capacity: "AC charging", status: "Live" },
 ];
 
-// The two simple partnership paths used everywhere, plus the driver path.
+// The partnership paths and driver charger request used across the site.
 export const PATHS = {
   listLand: { href: "/host-a-charger", label: "List Your Land" },
   ownFranchise: { href: "/invest", label: "Own a Franchise" },
-  findCharging: { href: "/charging-locations", label: "Find Charging" },
+  requestCharger: { href: "/contact", label: "Request charger near you" },
 } as const;

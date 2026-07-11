@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import TrustSection from "@/components/TrustSection";
 import StatsBand from "@/components/StatsBand";
-import TrustedProperties from "@/components/TrustedProperties";
 import FAQ from "@/components/FAQ";
 import Image from "next/image";
 import Link from "next/link";
 import PageCTA from "@/components/subpage/PageCTA";
 import PageSection from "@/components/subpage/PageSection";
 import { IconRowCard, StepCard, SubpageCard } from "@/components/subpage/SubpageCard";
-import { CONTACT, SPECS } from "@/lib/content";
+import { CONTACT, PATHS, SPECS } from "@/lib/content";
 import {
   IconBanknotes,
   IconBolt,
@@ -78,7 +77,7 @@ const SOLUTIONS = [
   },
   {
     title: "AI-ENABLED 360° SECURITY",
-    text: "Cameras, two-way talk, siren, and 24/7 monitoring at no extra cost — your site and drivers stay protected.",
+    text: "Cameras, two-way talk, siren, and 24/7 monitoring at no extra cost. Your site and drivers stay protected.",
     icon: <IconShieldCheck className="w-5 h-5" />,
   },
   {
@@ -88,7 +87,7 @@ const SOLUTIONS = [
   },
   {
     title: "BACKED BY BLACK COBRA GROUP",
-    text: "33 years of infrastructure heritage (Est. 1992) behind every site — you partner with a group built to last.",
+    text: "33 years of infrastructure heritage (Est. 1992) behind every site. You partner with a group built to last.",
     icon: <IconUsers className="w-5 h-5" />,
   },
 ] as const;
@@ -142,9 +141,9 @@ const ROLES = [
   {
     eyebrow: "DRIVERS",
     title: "EV drivers",
-    text: "Access fast, reliable charging wherever you go with simple, app-free UPI payments.",
-    href: "/charging-locations",
-    cta: "Find Charging",
+    text: "Need charging near you? Tell us your location and we will route your request to the right team.",
+    href: PATHS.requestCharger.href,
+    cta: PATHS.requestCharger.label,
     icon: IconCarFront,
   },
 ] as const;
@@ -156,7 +155,7 @@ const BENEFITS = [
   },
   {
     title: "On-time payments, every month",
-    text: "Transparent, on-time monthly payments you can count on — no chasing, no surprises.",
+    text: "Transparent, on-time monthly payments you can count on. No chasing, no surprises.",
   },
   {
     title: "Higher footfall at your location",
@@ -171,7 +170,7 @@ const BENEFITS = [
 const STEPS = [
   {
     title: "You reach out",
-    description: "Send your location and photos over WhatsApp or email — that's all it takes to start.",
+    description: "Send your location and photos over WhatsApp or email. That's all it takes to start.",
     icon: <IconClipboard className="w-4 h-4" />,
   },
   {
@@ -181,7 +180,7 @@ const STEPS = [
   },
   {
     title: "Free site survey",
-    description: "Our team visits and assesses your location — free, with no obligation.",
+    description: "Our team visits and assesses your location, free, with no obligation.",
     icon: <IconClipboardCheck className="w-4 h-4" />,
   },
   {
@@ -191,7 +190,7 @@ const STEPS = [
   },
   {
     title: "Sign & install in 30–45 days",
-    description: "We install, commission, and run the charger — then you start earning.",
+    description: "We install, commission, and run the charger, then you start earning.",
     icon: <IconWrench className="w-4 h-4" />,
   },
 ] as const;
@@ -200,7 +199,7 @@ const FAQ_ITEMS = [
   {
     question: "How do I rent my land for an EV charging station?",
     answer:
-      "Share your location and a few photos with EZIT over WhatsApp or email. We run a free, no-obligation site survey, send you a tailored proposal, and if you sign, we install and operate the charger at our cost — you earn a monthly revenue share.",
+      "Share your location and a few photos with EZIT over WhatsApp or email. We run a free, no-obligation site survey, send you a tailored proposal, and if you sign, we install and operate the charger at our cost. You earn a monthly revenue share.",
   },
   {
     question: "How much does an EV charging franchise cost in India?",
@@ -327,15 +326,13 @@ export default function Home() {
 
       <StatsBand tone="muted" />
 
-      <TrustedProperties tone="base" />
-
       <PageSection
         tone="muted"
         header={{
           eyebrow: "GET STARTED",
           title: "Choose your role",
           description:
-            "Whether you own land, want to invest, or drive an EV, EZIT gives you a simple way to be part of India's charging network.",
+            "Whether you own land, want to invest, or need charging nearby, EZIT gives you a simple way to be part of India's charging network.",
         }}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">

@@ -38,7 +38,7 @@ const FAQ_ITEMS = [
   {
     question: "Is EV charging profitable in India?",
     answer:
-      "Yes. India is targeting around 30% EV penetration by 2030, and EV charging is now a de-licensed activity under the 2024 Ministry of Power guidelines — lowering barriers and supporting strong demand for reliable fast charging.",
+      "Yes. India is targeting around 30% EV penetration by 2030, and EV charging is now a de-licensed activity under the 2024 Ministry of Power guidelines, lowering barriers and supporting strong demand for reliable fast charging.",
   },
   {
     question: "What do I have to manage as a franchise owner?",
@@ -57,7 +57,7 @@ export default function InvestPage() {
             Own a franchise on India&apos;s <span className="text-white/90">EV charging network</span>
           </>
         }
-        description="We secure the location, install, own and operate end-to-end — you invest and earn. Typical payback 2–3 years on India's fast-growing fast-charging network."
+        description="We secure the location, install, own and operate end-to-end. You invest and earn. Typical payback 2–3 years on India's fast-growing fast-charging network."
       />
 
       <PageSection tone="muted" header={{ eyebrow: "Market", title: "Why charging demand is structural" }}>
@@ -66,7 +66,7 @@ export default function InvestPage() {
             <p className="text-white/65 leading-relaxed text-base">
               EV adoption is accelerating while dependable public charging remains uneven. India is targeting around
               30% EV penetration by 2030, and EV charging is now a de-licensed activity under the 2024 Ministry of Power
-              guidelines — removing a major barrier to entry.
+              guidelines, removing a major barrier to entry.
             </p>
             <p className="text-white/55 leading-relaxed text-sm">
               EZIT focuses on locations with real dwell or flow, electrical realism, and operating discipline, so assets
@@ -94,7 +94,7 @@ export default function InvestPage() {
         header={{
           eyebrow: "The offer",
           title: "One simple franchise, run end-to-end",
-          description: "No mix of models or jargon — one clear, hassle-free way to own a charger on the EZIT network.",
+          description: "No mix of models or jargon. One clear, hassle-free way to own a charger on the EZIT network.",
         }}
       >
         <SubpageCard hover={false} className="p-8 sm:p-10 max-w-3xl mx-auto text-center">

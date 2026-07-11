@@ -24,7 +24,7 @@ import {
 } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "List Your Land for EV Charging — Earn Monthly Income | EZIT",
+  title: "List Your Land for EV Charging | Earn Monthly Income | EZIT",
   description:
     "Own land, a mall, hotel or petrol pump? EZIT installs and operates EV chargers at zero cost to you and pays revenue every month. Free site survey within days.",
   alternates: { canonical: "/host-a-charger" },
@@ -97,7 +97,7 @@ const BENEFITS = [
 const STEPS = [
   { title: "You reach out", description: "Send location & photos over WhatsApp or email.", icon: <IconClipboard className="w-4 h-4" /> },
   { title: "Quick discovery call", description: "A short call to understand your site and goals.", icon: <IconUsers className="w-4 h-4" /> },
-  { title: "Free site survey", description: "Within days — free, with no obligation.", icon: <IconClipboardCheck className="w-4 h-4" /> },
+  { title: "Free site survey", description: "Within days, free, with no obligation.", icon: <IconClipboardCheck className="w-4 h-4" /> },
   { title: "Tailored proposal", description: "Charger type, economics, and timeline, no upfront commitment.", icon: <IconBanknotes className="w-4 h-4" /> },
   { title: "Sign & install in 30–45 days", description: "We install and run it; you start earning.", icon: <IconWrench className="w-4 h-4" /> },
 ] as const;
@@ -106,7 +106,7 @@ const FAQ_ITEMS = [
   {
     question: "How do I rent my land for an EV charging station?",
     answer:
-      "Send EZIT your location and photos over WhatsApp or email. We run a free, no-obligation site survey within days, send a tailored proposal, and on signing we install and operate the charger at our cost — you earn a monthly revenue share.",
+      "Send EZIT your location and photos over WhatsApp or email. We run a free, no-obligation site survey within days, send a tailored proposal, and on signing we install and operate the charger at our cost. You earn a monthly revenue share.",
   },
   {
     question: "How much can I earn renting land for EV charging?",
@@ -135,7 +135,7 @@ export default function HostAChargerPage() {
             Turn parking into <span className="text-white/90">monthly EV income</span>
           </>
         }
-        description="List your land — we install and run the charger at our cost, you earn every month. Zero investment, zero operations. 95% uptime, AI 360° security, and on-time monthly payments."
+        description="List your land. We install and run the charger at our cost, you earn every month. Zero investment, zero operations. 95% uptime, AI 360° security, and on-time monthly payments."
       >
         <Link
           href="#landowner"
@@ -237,7 +237,7 @@ export default function HostAChargerPage() {
         header={{
           eyebrow: "Timeline",
           title: "How hosting works",
-          description: "A clear sequence from first message to first session — free site survey within days, install in 30–45 days.",
+          description: "A clear sequence from first message to first session: free site survey within days, install in 30–45 days.",
         }}
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-6">

@@ -14,8 +14,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        "ezit-green": "#22c55e",
-        "ezit-green-hover": "#16a34a",
+        "ezit-green": "#10B981",
+        "ezit-green-hover": "#059669",
       },
       keyframes: {
         float: {

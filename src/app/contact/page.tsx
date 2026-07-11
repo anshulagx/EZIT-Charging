@@ -19,6 +19,12 @@ const INTENTS = [
     message:
       "Hi EZIT, I'm interested in owning an EV charging franchise. Please share details on investment, ROI and next steps.",
   },
+  {
+    id: "charger",
+    label: "Request charger near you",
+    message:
+      "Hi EZIT, I'd like to request a charger near me. Here is my location and any details:",
+  },
 ] as const;
 
 export default function ContactPage() {
@@ -56,7 +62,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Get in touch"
         title={<>Contact EZIT</>}
-        description="Listing your land, owning a franchise, or finding charging — we route your message to the right team quickly."
+        description="Listing your land, owning a franchise, or requesting a charger near you. We route your message to the right team quickly."
       >
         <a
           href={CONTACT.whatsappHref}
@@ -157,23 +163,9 @@ export default function ContactPage() {
                 <li>
                   <span className="block text-white/40 text-xs uppercase tracking-wider mb-0.5">Office</span>
                   <span className="text-white/85">{CONTACT.officeArea}</span>
-                  <span className="block text-white/55 text-xs mt-1">Serving {CONTACT.serviceAreas}</span>
                 </li>
               </ul>
             </SubpageCard>
-
-            <div className="rounded-2xl overflow-hidden border border-white/[0.1] bg-black/20 shadow-[0_24px_48px_-24px_rgba(0,0,0,0.6)]">
-              <div className="px-4 py-2.5 border-b border-white/[0.06] flex items-center justify-between">
-                <span className="text-xs font-medium text-white/45 uppercase tracking-wider">Map</span>
-                <span className="text-xs text-white/35">Kalkaji, South Delhi</span>
-              </div>
-              <iframe
-                title="EZIT office location — Kalkaji, South Delhi"
-                src="https://maps.google.com/maps?q=Kalkaji%20South%20Delhi&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                className="w-full h-[280px] sm:h-[320px]"
-                loading="lazy"
-              />
-            </div>
           </div>
         </div>
       </PageSection>

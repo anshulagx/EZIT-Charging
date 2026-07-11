@@ -3,9 +3,10 @@ import Link from "next/link";
 import PageHero from "@/components/subpage/PageHero";
 import PageSection from "@/components/subpage/PageSection";
 import { SubpageCard } from "@/components/subpage/SubpageCard";
+import { PATHS } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "EZIT EV Charging Network — Delhi NCR, Punjab, Haryana & Bengaluru",
+  title: "EZIT EV Charging Network | Delhi NCR, Punjab, Haryana & Bengaluru",
   description:
     "Explore the EZIT EV charging network across the NH-44 Delhi–Ambala–Mohali corridor and Bengaluru. Reliable DC fast charging with app-free UPI payments.",
   alternates: { canonical: "/locations" },
@@ -30,10 +31,10 @@ export default function LocationsPage() {
         description="Explore where we operate today, and how new partner sites join the map as we scale reliable fast charging."
       >
         <Link
-          href="/charging-locations"
+          href={PATHS.requestCharger.href}
           className="px-6 py-3 rounded-full bg-white text-black font-medium text-sm hover:bg-white/90 transition-all duration-300"
         >
-          Driver finder
+          {PATHS.requestCharger.label}
         </Link>
         <Link
           href="/host-a-charger"

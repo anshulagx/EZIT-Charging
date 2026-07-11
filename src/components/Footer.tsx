@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IconBanknotes, IconBolt, IconShieldCheck } from "@/components/icons";
-import { CONTACT } from "@/lib/content";
+import { CONTACT, PATHS } from "@/lib/content";
 
 const LOGO_URL = "/images/ezit-logo.jpg";
 
@@ -11,19 +11,22 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <Link href="/" className="inline-block mb-5">
+            <Link href="/" className="inline-flex items-center gap-3 mb-5">
               <Image
                 src={LOGO_URL}
                 alt="EZIT EV charging logo"
                 width={120}
                 height={40}
-                className="h-8 w-auto object-contain"
+                className="h-8 w-auto object-contain mix-blend-lighten"
               />
+              <span className="text-xs text-white leading-tight border-l border-white/20 pl-3">
+                EV charging made EZ
+              </span>
             </Link>
             <p className="text-sm text-white/50 leading-relaxed max-w-xs">
               EZIT is the Green Energy arm of the 33-year-old Black Cobra Group,
-              building India&apos;s most reliable EV charging network across Delhi
-              NCR, Punjab, Haryana &amp; Bengaluru. Fast, app-free, built for scale.
+              building India&apos;s most reliable EV charging network with Pan India
+              operations. Fast, app-free, built for scale.
             </p>
             <div className="mt-5 space-y-2.5">
               <a
@@ -61,7 +64,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { href: "/", label: "Home" },
-                { href: "/charging-locations", label: "Find Charging Stations" },
+                { href: PATHS.requestCharger.href, label: PATHS.requestCharger.label },
                 { href: "/charging-solutions", label: "Charging Solutions" },
                 { href: "/how-it-works", label: "How It Works" },
                 { href: "/blog", label: "Blog" },

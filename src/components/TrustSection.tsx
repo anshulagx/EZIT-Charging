@@ -1,27 +1,22 @@
 import PageSection from "@/components/subpage/PageSection";
 import { SubpageCard } from "@/components/subpage/SubpageCard";
-import { IconBolt, IconBuilding, IconGlobe, IconUsers } from "@/components/icons";
+import { IconBuilding, IconGlobe, IconUsers } from "@/components/icons";
 
 const pillars = [
   {
     icon: IconBuilding,
     title: "Building Materials",
-    desc: "Black Cobra Ply, Mica & WPC, plus Alex aluminium panels — three decades of trusted infrastructure products.",
+    desc: "Black Cobra Ply, Mica & WPC, plus Alex aluminium panels. Three decades of trusted infrastructure products.",
   },
   {
     icon: IconUsers,
     title: "Education",
-    desc: "Quantum University, Roorkee — a top-60 ranked B-school shaping the next generation of talent.",
+    desc: "Quantum University, Roorkee, a top-60 ranked B-school shaping the next generation of talent.",
   },
   {
     icon: IconGlobe,
     title: "Green Energy",
-    desc: "From fuel stations to EV charging — EZIT carries the group's energy legacy into clean mobility.",
-  },
-  {
-    icon: IconBolt,
-    title: "EV Charging",
-    desc: "30–360 kW DC fast charging, full charge in 20–40 minutes, with 95% uptime and 24/7 monitoring.",
+    desc: "From fuel stations to EV charging, EZIT carries the group's energy legacy into clean mobility.",
   },
 ] as const;
 
@@ -33,10 +28,10 @@ export default function TrustSection() {
         eyebrow: "Heritage",
         title: "Built on trusted infrastructure expertise",
         description:
-          "EZIT is the Green Energy arm of the Black Cobra Group (Est. 1992). You're partnering with a 33-year-old group with deep execution experience — not a startup that may disappear next year.",
+          "EZIT is the Green Energy arm of the Black Cobra Group (Est. 1992). You're partnering with a 33-year-old group with deep execution experience, not a startup that may disappear next year.",
       }}
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
         {pillars.map((f) => {
           const FIcon = f.icon;
           return (

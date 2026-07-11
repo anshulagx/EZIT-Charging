@@ -50,8 +50,8 @@ const localBusinessJsonLd = {
   email: CONTACT.emailGeneral,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Kalkaji",
-    addressRegion: "South Delhi",
+    addressLocality: "New Delhi",
+    addressRegion: "Delhi",
     addressCountry: "IN",
   },
   areaServed: ["Delhi NCR", "Punjab", "Haryana", "Bengaluru"],
